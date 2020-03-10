@@ -14,4 +14,5 @@
     <string name="profile_notifications">Уведомления</string>
     <string name="profile_change_password">Сменить пароль</string>
     <string name="profile_exit">Выйти</string>
+    <string name="contacts_toolbar_contacts">Контакты</string>
 </resources>
