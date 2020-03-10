@@ -9,4 +9,6 @@
     <color name="register_button_color">#BF9430</color>
     <color name="register_button_font_color">#7CCA32</color>
     <color name="registration_button_color">#1E796A	</color>
+    <color name="profile_change_password_button_color">#BF9430</color>
+    <color name="profile_exit_button_color">#9A001E</color>
 </resources>

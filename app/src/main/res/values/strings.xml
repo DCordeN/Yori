@@ -10,4 +10,8 @@
     <string name="resistration_password">Password:</string>
     <string name="registration_confirm_password">Confirm password:</string>
     <string name="registration_register">Зарегистрироваться</string>
+    <string name="profile_email">Email:</string>
+    <string name="profile_notifications">Уведомления</string>
+    <string name="profile_change_password">Сменить пароль</string>
+    <string name="profile_exit">Выйти</string>
 </resources>
