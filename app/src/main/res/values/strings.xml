@@ -4,4 +4,10 @@
     <string name="enter_password_string">Password:</string>
     <string name="enter_button_string">Войти</string>
     <string name="register_button_string">Регистрация</string>
+    <string name="registration_text">Регистрация</string>
+    <string name="registration_email">Email:</string>
+    <string name="registration_username">Username:</string>
+    <string name="resistration_password">Password:</string>
+    <string name="registration_confirm_password">Confirm password:</string>
+    <string name="registration_register">Зарегистрироваться</string>
 </resources>
