@@ -2,6 +2,8 @@ package com.example.yori
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import com.example.yori.authorization.AuthorizationFragment
 import com.example.yori.registration.RegistrationFragment
 import androidx.fragment.app.Fragment
@@ -10,7 +12,9 @@ import kotlinx.android.synthetic.main.enter_fragment.btnRegister
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit private var currentFragment: Fragment
+    companion object var currentFragment: Fragment = AuthorizationFragment()
+    var inten = getIntent()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
 
         if(savedInstanceState == null) {
-            currentFragment = AuthorizationFragment()
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
                 .commit()
@@ -27,8 +30,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
         btnRegister.setOnClickListener {
             currentFragment = RegistrationFragment()
+            Log.e("$currentFragment", "kjnk")
+
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
                 .commit()
@@ -36,13 +42,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(currentFragment is RegistrationFragment){
-            val intent = getIntent()
+        inten = getIntent()
+
+        if(currentFragment is AuthorizationFragment)
+            finish()
+        else {
             finish()
             startActivity(intent)
         }
-        else
-            finish()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+
+        if(currentFragment is AuthorizationFragment)
+            outState.putString("Auth", "Auth")
+        else if(currentFragment is RegistrationFragment)
+            outState.putString("Reg", "Reg")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        if(savedInstanceState.getString("Auth") == "Auth")
+            currentFragment = AuthorizationFragment()
+        else if (savedInstanceState.getString("Reg") == "Reg")
+            currentFragment = RegistrationFragment()
     }
 
 }
