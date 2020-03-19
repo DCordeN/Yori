@@ -12,18 +12,19 @@ import kotlinx.android.synthetic.main.enter_fragment.btnRegister
 
 class MainActivity : AppCompatActivity() {
 
-    companion object var currentFragment: Fragment = AuthorizationFragment()
-    var inten = getIntent()
-
+    lateinit var currentFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_register_activity)
         getSupportActionBar()?.hide();
 
+        currentFragment = AuthorizationFragment()
+
         if(savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
+                .addToBackStack(null)
                 .commit()
             }
     }
@@ -33,17 +34,15 @@ class MainActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             currentFragment = RegistrationFragment()
-            Log.e("$currentFragment", "kjnk")
-
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
+                .addToBackStack(null)
                 .commit()
         }
     }
 
     override fun onBackPressed() {
-        inten = getIntent()
-
+        var inten = getIntent()
         if(currentFragment is AuthorizationFragment)
             finish()
         else {
@@ -52,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
 
         if(currentFragment is AuthorizationFragment)
             outState.putString("Auth", "Auth")

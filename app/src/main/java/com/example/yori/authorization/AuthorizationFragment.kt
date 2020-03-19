@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.arellomobile.mvp.MvpAppCompatFragment
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.yori.MainActivity
 import com.example.yori.R
 import kotlinx.android.synthetic.main.enter_fragment.*
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.enter_register_activity.*
 
 class AuthorizationFragment : MvpAppCompatFragment(), IAuthorizationView {
 
+    @InjectPresenter
     lateinit var presenter : AuthorizationPresenter
 
     override fun onCreateView(
@@ -36,7 +38,7 @@ class AuthorizationFragment : MvpAppCompatFragment(), IAuthorizationView {
         }
 
         btnEnter.setOnClickListener{
-            //presenter.authorize("${etEmail_username.text}", "${etPassword.text}")
+            presenter.authorize("${etEmail_username.text}", "${etPassword.text}")
         }
 
     }
