@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         if(savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
+                .replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment)
                 .addToBackStack(null)
                 .commit()
             }
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         btnRegister.setOnClickListener {
             currentFragment = RegistrationFragment()
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frmAuthorizationRegistrationmbed, currentFragment)
+                .replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment)
                 .addToBackStack(null)
                 .commit()
         }
