@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.budiyev.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:animateProgress="true"
+        app:backgroundStrokeColor="#ff3f51b5"
+        app:backgroundStrokeWidth="2dp"
+        app:drawBackgroundStroke="false"
+        app:foregroundStrokeCap="butt"
+        app:foregroundStrokeColor="#ffff4081"
+        app:foregroundStrokeWidth="3dp"
+        app:indeterminate="false"
+        app:indeterminateRotationAnimationDuration="1200"
+        app:indeterminateSweepAnimationDuration="600"
+        app:indeterminateMinimumAngle="45"
+        app:maximum="100"
+        app:progress="50"
+        app:progressAnimationDuration="100"
+        app:startAngle="270"
+        />
+
+</FrameLayout>

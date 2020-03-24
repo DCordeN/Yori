@@ -1,4 +1,4 @@
-package com.example.yori.authorization
+package com.example.yori.presentation.credentials.authorization
 
 import com.arellomobile.mvp.MvpView
 
