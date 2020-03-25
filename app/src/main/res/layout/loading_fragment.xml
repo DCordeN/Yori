@@ -23,9 +23,8 @@
         app:indeterminateSweepAnimationDuration="600"
         app:indeterminateMinimumAngle="45"
         app:maximum="100"
-        app:progress="50"
+        app:progress="5"
         app:progressAnimationDuration="100"
-        app:startAngle="270"
         />
 
 </FrameLayout>

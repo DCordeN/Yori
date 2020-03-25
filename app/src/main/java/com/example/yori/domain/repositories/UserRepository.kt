@@ -1,5 +1,6 @@
 package com.example.yori.domain.repositories
 
+import io.reactivex.Observable
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
@@ -36,6 +37,8 @@ class UserRepository {
     fun getUser() = storage.user
 
     fun refreshToken(token: Token): Token {
-        TODO("Not yet implemented")
+
+        return rest.refreshToken(token.access, token.refresh)
+
     }
 }

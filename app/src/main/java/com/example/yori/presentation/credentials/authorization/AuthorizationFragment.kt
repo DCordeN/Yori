@@ -36,7 +36,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
         }
 
         btnEnter.setOnClickListener{
-            presenter.authorize("${etEmail_username.text}", "${etPassword.text}")
+            presenter.authorize("${etUsername.text}", "${etPassword.text}")
         }
     }
 

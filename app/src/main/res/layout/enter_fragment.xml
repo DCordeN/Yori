@@ -7,12 +7,12 @@
 
 
     <EditText
-        android:id="@+id/etEmail_username"
+        android:id="@+id/etUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="@string/enter_email_username_string"
+        android:hint="@string/enter_username_string"
         android:inputType="textEmailAddress"
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail_username"
+        app:layout_constraintTop_toBottomOf="@+id/etUsername"
         app:layout_constraintVertical_bias="0.031" />
 
     <Button

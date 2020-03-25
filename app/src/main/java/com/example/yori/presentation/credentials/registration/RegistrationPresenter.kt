@@ -6,6 +6,7 @@ import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.presentation.credentials.CredentialsActivity
+import com.example.yori.presentation.main.MainActivity
 import javax.inject.Inject
 
 @InjectViewState
@@ -29,7 +30,9 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
                 return@SubRX
             }
 
-            CredentialsActivity.show()
+
+            MainActivity.show()
         }, login, pass)
+
     }
 }

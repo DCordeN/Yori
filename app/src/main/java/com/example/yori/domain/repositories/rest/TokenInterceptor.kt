@@ -41,6 +41,7 @@ class TokenInterceptor: Interceptor {
         val original = chain.request()
         val response = chain.proceed(addAuth(original, token))
 
+
         if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
             if (lock.tryLock()) {
                 try {

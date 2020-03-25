@@ -24,7 +24,7 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
         super.onViewCreated(view, savedInstanceState)
 
         btnRegister.setOnClickListener{
-            presenter.registration("${etEmail.text}", "${etPassword.text}")
+            presenter.registration("${etUsername.text}", "${etPassword.text}")
         }
     }
 
