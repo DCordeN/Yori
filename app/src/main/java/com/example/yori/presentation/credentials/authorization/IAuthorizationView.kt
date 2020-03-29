@@ -4,4 +4,5 @@ import com.arellomobile.mvp.MvpView
 
 interface IAuthorizationView : MvpView {
 
+    fun onError(message: String?)
 }

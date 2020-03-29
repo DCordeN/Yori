@@ -1,12 +1,13 @@
 package com.example.yori.domain.repositories
 
-import io.reactivex.Observable
+import android.os.SystemClock
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
-import com.example.yori.domain.repositories.models.Token
-import com.example.yori.domain.repositories.models.User
+import com.example.yori.domain.repositories.models.rest.Token
+import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.rest.api.UserRestApi
+import java.net.HttpURLConnection
 import javax.inject.Inject
 
 class UserRepository {
@@ -34,11 +35,22 @@ class UserRepository {
             .standardSubscribeIO(observer)
     }
 
-    fun getUser() = storage.user
+    fun getUser() = storage.getUser()
 
-    fun refreshToken(token: Token): Token {
+    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED}): Token? {
 
-        return rest.refreshToken(token.access, token.refresh)
+        val response = rest.refreshToken(token.refresh).execute()
+        response.body()?.let{
+            storage.save(it)
+            return it
+        }
+
+        if(onRetry(response.code())){
+            SystemClock.sleep(500)
+            return refreshToken(token)
+        }
+
+        return null
 
     }
 }

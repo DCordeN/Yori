@@ -1,6 +1,6 @@
 package com.example.yori.domain.repositories.rest
 
-import com.example.yori.domain.repositories.models.Token
+import com.example.yori.domain.repositories.models.rest.Token
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.exceptions.AuthException
 import com.example.yori.presentation.credentials.CredentialsActivity

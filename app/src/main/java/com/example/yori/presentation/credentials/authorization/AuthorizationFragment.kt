@@ -1,6 +1,7 @@
 package com.example.yori.presentation.credentials.authorization
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.FragmentTransaction
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -46,6 +47,10 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
 
     override fun getViewById(): Int {
         return R.layout.enter_fragment
+    }
+
+    override fun onError(message: String){
+        Log.e("$message", message)
     }
 
 }
