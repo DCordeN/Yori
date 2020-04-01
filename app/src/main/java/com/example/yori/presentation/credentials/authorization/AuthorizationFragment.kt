@@ -49,7 +49,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
         return R.layout.enter_fragment
     }
 
-    override fun onError(message: String){
+    override fun onError(message: String?){
         Log.e("$message", message)
     }
 

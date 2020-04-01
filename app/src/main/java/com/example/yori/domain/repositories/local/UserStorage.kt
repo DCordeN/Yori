@@ -16,14 +16,37 @@ class UserStorage {
     @Inject
     constructor()
 
-    fun getUser(): User? {
+    fun dropCredentials(){
+        user = null
 
+        Realm.getDefaultInstance().use {
+            it.executeTransaction { realm ->
+                it.where(UserRealm::class.java).findAll().deleteAllFromRealm()
+                it.where(TokenRealm::class.java).findAll().deleteAllFromRealm()
+            }
+        }
+    }
+
+    fun getUser(): User? {
         user?.let {
             return it
         }
 
         Realm.getDefaultInstance().use {
             return it.where(UserRealm::class.java).findFirst()?.toBase().apply { user = this}
+        }
+    }
+
+    fun save(token: Token){
+        user?.token = token
+
+        Realm.getDefaultInstance().use {
+            it.executeTransaction { realm ->
+                it.where(UserRealm::class.java).findFirst()?.let {
+                    it.token = token.toRealm()
+                    realm.copyToRealmOrUpdate(it)
+                }
+            }
         }
     }
 
@@ -37,27 +60,4 @@ class UserStorage {
         }
     }
 
-    fun save(token: Token){
-        user?.token = token
-
-        Realm.getDefaultInstance().use {
-            it.executeTransaction { realm ->  
-                it.where(UserRealm::class.java).findFirst()?.let {
-                    it.token = token.toRealm()
-                    realm.copyToRealmOrUpdate(it)
-                }
-            }
-        }
-    }
-
-    fun dropCredentials(){
-        user = null
-
-        Realm.getDefaultInstance().use {
-            it.executeTransaction { realm ->  
-                it.where(UserRealm::class.java).findAll().deleteAllFromRealm()
-                it.where(TokenRealm::class.java).findAll().deleteAllFromRealm()
-            }
-        }
-    }
 }
