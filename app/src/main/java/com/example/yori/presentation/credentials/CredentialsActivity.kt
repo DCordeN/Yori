@@ -35,7 +35,7 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_register_activity)
-        getSupportActionBar()?.hide();
+        supportActionBar?.hide();
 
         currentFragment = AuthorizationFragment()
 
@@ -82,15 +82,15 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
     }
 
     override fun showAuth() {
-        replace(currentFragment, backStack = null, tag = null)
+        replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment, backStack = null, tag = null)
     }
 
     override fun showRegistration() {
-        replace(currentFragment, backStack = null, tag = null)
+        replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment, backStack = null, tag = null)
     }
 
     override fun showLoading() {
-        replace(LoadingFragment(), backStack = null, tag = null)
+        replace(R.id.frmAuthorizationRegistrationEmbed, LoadingFragment(), backStack = null, tag = null)
     }
 
 }

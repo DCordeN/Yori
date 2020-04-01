@@ -54,7 +54,7 @@ class UserStorage {
         this.user = user
 
         Realm.getDefaultInstance().use {
-            it.executeTransaction{ realm ->  
+            it.executeTransaction { realm ->
                 user.toRealm()?.let { realm.copyToRealmOrUpdate(it) }
             }
         }

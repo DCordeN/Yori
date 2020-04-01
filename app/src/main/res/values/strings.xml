@@ -15,4 +15,5 @@
     <string name="profile_change_password">Сменить пароль</string>
     <string name="profile_exit">Выйти</string>
     <string name="contacts_toolbar_contacts">Контакты</string>
+    <string name="menu_dialogs_profile">Профиль</string>
 </resources>

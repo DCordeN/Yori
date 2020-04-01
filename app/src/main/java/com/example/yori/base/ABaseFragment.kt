@@ -21,11 +21,11 @@ abstract class ABaseFragment : MvpAppCompatFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getViewById(), enter_register_activity, false)
+        return inflater.inflate(getViewById(), getContainer(), false)
     }
 
     abstract fun getViewById() : Int
-
+    abstract fun getContainer() : ViewGroup?
 
     fun visibility(view: View?, value: Boolean){
         view?.visibility = if (value) View.VISIBLE else View.GONE

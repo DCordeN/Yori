@@ -3,6 +3,7 @@ package com.example.yori.presentation.credentials.authorization
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -12,6 +13,7 @@ import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.credentials.registration.RegistrationFragment
 import kotlinx.android.synthetic.main.enter_fragment.*
+import kotlinx.android.synthetic.main.enter_register_activity.*
 import javax.inject.Inject
 
 class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
@@ -51,6 +53,10 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
 
     override fun onError(message: String?){
         Log.e("$message", message)
+    }
+
+    override fun getContainer(): ViewGroup? {
+        return enter_register_activity
     }
 
 }

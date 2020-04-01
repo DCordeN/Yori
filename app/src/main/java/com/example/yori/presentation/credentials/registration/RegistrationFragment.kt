@@ -2,12 +2,14 @@ package com.example.yori.presentation.credentials.registration
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
+import kotlinx.android.synthetic.main.enter_register_activity.*
 import kotlinx.android.synthetic.main.register_fragment.*
 import javax.inject.Inject
 
@@ -46,6 +48,10 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
 
     override fun onError(message: String?){
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun getContainer(): ViewGroup? {
+        return enter_register_activity
     }
 
 }

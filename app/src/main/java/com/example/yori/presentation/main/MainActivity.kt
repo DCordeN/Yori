@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.dialogs_layout)
 
         if (savedInstanceState != null)
             return // Не будем пересоздавать фрагмент, пусть берется старый из стека
 
-        btnLogout.setOnClickListener {
-            CredentialsActivity.show()
-        }
+//        btnLogout.setOnClickListener {
+//            CredentialsActivity.show()
+//        }
     }
 }
