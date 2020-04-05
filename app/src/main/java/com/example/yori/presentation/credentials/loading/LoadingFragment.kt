@@ -48,7 +48,7 @@ class LoadingFragment: ABaseFragment(), ILoadingView {
         DaggerAppComponent.create().inject(this)
     }
 
-    override fun getViewById(): Int {
+    override fun getViewId(): Int {
         return R.layout.loading_fragment
     }
 

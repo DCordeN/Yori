@@ -9,8 +9,8 @@ import com.example.yori.presentation.credentials.CredentialsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    companion object {
 
+    companion object {
         fun show() {
             App.appContext.let {
                 it.startActivity(Intent(it, MainActivity::class.java).apply {

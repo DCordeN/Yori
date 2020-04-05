@@ -1,4 +1,4 @@
-package com.example.yori.presentation.main.dialoglist
+package com.example.yori.presentation.main.dialoglist.menu
 
 import android.os.Bundle
 import android.view.View
@@ -12,11 +12,12 @@ import kotlinx.android.synthetic.main.dialogs_fragment.*
 import kotlinx.android.synthetic.main.dialogs_layout.*
 import javax.inject.Inject
 
-class DialogListFragment : ABaseFragment(), IDialogView {
+class DialogListMenuFragment : ABaseFragment(),
+    IDialogListMenuView {
 
     @Inject
     @InjectPresenter
-    lateinit var presenter : DialogListPresenter
+    lateinit var presenter : DialogListMenuPresenter
 
     @ProvidePresenter
     fun providePresenter() = presenter
@@ -25,7 +26,15 @@ class DialogListFragment : ABaseFragment(), IDialogView {
         DaggerAppComponent.create().inject(this)
     }
 
-    override fun getViewById(): Int {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        tvContacts.setOnClickListener {
+            presenter.showContacts()
+        }
+    }
+
+    override fun getViewId(): Int {
         return R.layout.dialogs_fragment
     }
 

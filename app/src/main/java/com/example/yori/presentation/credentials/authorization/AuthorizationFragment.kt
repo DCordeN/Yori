@@ -47,7 +47,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
         DaggerAppComponent.create().inject(this)
     }
 
-    override fun getViewById(): Int {
+    override fun getViewId(): Int {
         return R.layout.enter_fragment
     }
 

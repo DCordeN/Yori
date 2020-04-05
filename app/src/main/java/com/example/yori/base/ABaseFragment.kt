@@ -21,10 +21,10 @@ abstract class ABaseFragment : MvpAppCompatFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getViewById(), getContainer(), false)
+        return inflater.inflate(getViewId(), getContainer(), false)
     }
 
-    abstract fun getViewById() : Int
+    abstract fun getViewId() : Int
     abstract fun getContainer() : ViewGroup?
 
     fun visibility(view: View?, value: Boolean){

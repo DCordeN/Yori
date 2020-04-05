@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.main.dialoglist.DialogListActivity" />
+        <activity android:name=".presentation.main.contactlist.ContactListActivity" />
     </application>
 
 </manifest>

@@ -16,4 +16,6 @@
     <string name="profile_exit">Выйти</string>
     <string name="contacts_toolbar_contacts">Контакты</string>
     <string name="menu_dialogs_profile">Профиль</string>
+    <string name="dialogs_fragment_profile">Профиль</string>
+    <string name="contacts">Контакты</string>
 </resources>
