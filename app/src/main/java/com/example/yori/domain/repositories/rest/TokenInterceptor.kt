@@ -12,15 +12,13 @@ import java.util.concurrent.locks.ReentrantLock
 import javax.inject.Inject
 
 class TokenInterceptor: Interceptor {
-    companion object {
 
+    companion object {
         const val HEADER_AUTHORIZATION = "access_token"
     }
 
-
     private val userRepository: UserRepository
     private val lock = ReentrantLock()
-
 
     @Inject
     constructor(userRepository: UserRepository) {
@@ -72,13 +70,11 @@ class TokenInterceptor: Interceptor {
                 return chain.proceed(addAuth(original, token))
             }
         }
-
         return response
     }
 
 
     private fun addAuth(original: Request, token: Token): Request {
-
         val request = original.newBuilder()
 
             .removeHeader("Content-Type")
@@ -89,7 +85,6 @@ class TokenInterceptor: Interceptor {
             .addHeader("Accept", "application/json")
             .addHeader(HEADER_AUTHORIZATION, token.access)
             .build()
-
 
         return request
     }

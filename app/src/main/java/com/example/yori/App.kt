@@ -6,6 +6,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 
 class App: Application() {
+
     companion object {
         lateinit var appContext: Context
     }

@@ -21,36 +21,33 @@ class UserRepository {
         this.rest = rest
     }
 
-    fun registration(observer: SubRX<User>, login: String, pass: String) {
-
-        rest.registration(login, pass)
-            .doOnNext { storage.save(it) }
-            .standardSubscribeIO(observer)
-    }
+    fun getUser() = storage.getUser()
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
-
         rest.login(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
     }
 
-    fun getUser() = storage.getUser()
 
-    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED}): Token? {
-
+    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
         val response = rest.refreshToken(token.refresh).execute()
-        response.body()?.let{
+        response.body()?.let {
             storage.save(it)
             return it
         }
 
-        if(onRetry(response.code())){
+        if(onRetry(response.code())) {
             SystemClock.sleep(500)
             return refreshToken(token)
         }
 
         return null
+    }
 
+    fun registration(observer: SubRX<User>, login: String, pass: String) {
+        rest.registration(login, pass)
+            .doOnNext { storage.save(it) }
+            .standardSubscribeIO(observer)
     }
 }

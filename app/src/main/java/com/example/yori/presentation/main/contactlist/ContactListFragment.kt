@@ -21,9 +21,6 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
     @ProvidePresenter
     fun providePresenter() = presenter
 
-    override fun inject() {
-        DaggerAppComponent.create().inject(this)
-    }
 
     class Adapter : ABaseAdapter<ContactItem, RecyclerView.ViewHolder>() {
 
@@ -43,6 +40,10 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
         }
     }
 
+    override fun getContainer(): ViewGroup? {
+        return contacts_list_layout
+    }
+
     override fun getListId(): Int = R.id.rvContacts
     override fun getViewId(): Int = R.layout.contacts_list_fragment
 
@@ -54,8 +55,8 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
         adapter.data = contacts.toMutableList()
     }
 
-    override fun getContainer(): ViewGroup? {
-        return contacts_list_layout
+    override fun inject() {
+        DaggerAppComponent.create().inject(this)
     }
 
 

@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.yori.App
 import com.example.yori.R
-import com.example.yori.presentation.credentials.CredentialsActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,10 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.dialogs_layout)
 
         if (savedInstanceState != null)
-            return // Не будем пересоздавать фрагмент, пусть берется старый из стека
+            return
 
-//        btnLogout.setOnClickListener {
-//            CredentialsActivity.show()
-//        }
     }
 }

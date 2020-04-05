@@ -27,6 +27,7 @@ class NetModule {
         const val NAME_CLIENT_WITHOUT_TOKEN_INTERCEPTOR = "NAME_CLIENT_WITHOUT_TOKEN_INTERCEPTOR"
     }
 
+
     @Provides
     @Singleton
     fun provideTokenInterceptor(userRepository: UserRepository) = TokenInterceptor(userRepository)
@@ -48,6 +49,7 @@ class NetModule {
         writeTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
         addInterceptor(logger)
     }.build()
+
 
     @Provides
     @Singleton

@@ -10,7 +10,6 @@ class ContactsRepository {
     constructor()
 
     fun loadContacts(call: (List<ContactItem>) -> Unit) {
-
         val result = mutableListOf<ContactItem>()
         val random = Random(System.currentTimeMillis())
         val count = random.nextInt(900) + 100

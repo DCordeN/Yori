@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -52,7 +53,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     }
 
     override fun onError(message: String?){
-        Log.e("$message", message)
+        Toast.makeText(context, "Упс! Что-то пошло не так!", Toast.LENGTH_SHORT).show()
     }
 
     override fun getContainer(): ViewGroup? {
