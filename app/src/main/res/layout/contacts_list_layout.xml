@@ -37,17 +37,21 @@
         android:text="@string/contacts_toolbar_contacts"
         android:textSize="24sp" />
 
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="349dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp" />
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/search"
+        app:srcCompat="@drawable/search"
+        android:layout_gravity="right"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
+        />
 
     <FrameLayout
         android:id="@+id/frmContactList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="60dp"/>
 
 </FrameLayout>

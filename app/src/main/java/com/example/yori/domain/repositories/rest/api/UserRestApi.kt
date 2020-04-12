@@ -37,11 +37,14 @@ class UserRestApi : ABaseRestApi<IUserRestApiService> {
 
     fun registration(login: String, password: String)
             = service.registration(
-        User(
-            login = login,
-            password = password
-        )
-    )
+                User(
+                    login = login,
+                    password = password
+                )
+            )
+
+    fun users(accessToken: String)
+            = service.users(accessToken)
 
 
 

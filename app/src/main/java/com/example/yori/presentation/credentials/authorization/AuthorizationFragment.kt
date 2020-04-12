@@ -29,7 +29,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnRegister.setOnClickListener{
+        btnRegister.setOnClickListener {
             activity?.let {
                 if(it is CredentialsActivity) {
                     it.currentFragment = RegistrationFragment()
@@ -39,7 +39,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
             FragmentTransaction.TRANSIT_FRAGMENT_CLOSE
         }
 
-        btnEnter.setOnClickListener{
+        btnEnter.setOnClickListener {
             presenter.authorize("${etUsername.text}", "${etPassword.text}")
         }
     }

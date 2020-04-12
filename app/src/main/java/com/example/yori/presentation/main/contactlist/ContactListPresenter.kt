@@ -24,4 +24,6 @@ class ContactListPresenter : MvpPresenter<IContactListView> {
     }
 
 
+
+
 }

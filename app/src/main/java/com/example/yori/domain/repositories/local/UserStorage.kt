@@ -12,6 +12,7 @@ import javax.inject.Inject
 class UserStorage {
 
     private var user: User? = null
+    private var users: List<User?> = arrayListOf()
 
     @Inject
     constructor()
@@ -25,6 +26,10 @@ class UserStorage {
                 it.where(TokenRealm::class.java).findAll().deleteAllFromRealm()
             }
         }
+    }
+
+    fun getToken(): Token? {
+        return user?.token
     }
 
     fun getUser(): User? {
@@ -50,7 +55,7 @@ class UserStorage {
         }
     }
 
-    fun save(user: User){
+    fun save(user: User) {
         this.user = user
 
         Realm.getDefaultInstance().use {
@@ -58,6 +63,10 @@ class UserStorage {
                 user.toRealm()?.let { realm.copyToRealmOrUpdate(it) }
             }
         }
+    }
+
+    fun save(users: List<User?>) {
+        this.users = users
     }
 
 }

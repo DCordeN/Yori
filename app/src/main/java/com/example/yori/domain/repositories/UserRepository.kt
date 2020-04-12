@@ -1,6 +1,7 @@
 package com.example.yori.domain.repositories
 
 import android.os.SystemClock
+import android.util.Log
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
@@ -21,12 +22,16 @@ class UserRepository {
         this.rest = rest
     }
 
+    fun getToken() = storage.getToken()
+
     fun getUser() = storage.getUser()
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
         rest.login(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
+
+        Log.e("${storage.getUser()}", "123")
     }
 
 
@@ -49,5 +54,15 @@ class UserRepository {
         rest.registration(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
+    }
+
+    fun users(observer: SubRX<List<User>>, token: Token?) {
+        var temp: Token
+        if (token != null) {
+            temp = token
+
+        rest.users(accessToken = temp.access)
+            .doOnNext { storage.save(it) }
+            .standardSubscribeIO(observer) }
     }
 }

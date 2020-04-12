@@ -29,6 +29,7 @@ interface IUserRestApiService {
     @PUT("/user/v1/registration")
     fun registration(@Body user: User): Observable<User>
 
-
+    @GET("/user/v1/users")
+    fun users(@Header("access_token") accessToken: String): Observable<List<User>>
 
 }
