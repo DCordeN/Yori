@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frmRegister"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/frmRegister">
-
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/et_password"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -18,11 +17,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername"
+        app:layout_constraintTop_toBottomOf="@+id/et_username"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <EditText
-        android:id="@+id/etConfirm_password"
+        android:id="@+id/et_confirm_password"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -33,11 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
         app:layout_constraintVertical_bias="0.06999999" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/registration_button_shape"
@@ -48,12 +47,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirm_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_confirm_password"
         app:layout_constraintVertical_bias="0.249"
         app:layout_goneMarginTop="200dp" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/et_username"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"

@@ -6,7 +6,7 @@ import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
-import kotlinx.android.synthetic.main.dialogs_layout.*
+import kotlinx.android.synthetic.main.activity_dialogs.*
 
 class DialogListActivity : ABaseActivity() {
 
@@ -25,7 +25,7 @@ class DialogListActivity : ABaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialogs_layout)
+        setContentView(R.layout.activity_dialogs)
         supportActionBar?.hide();
 
         replace(R.id.frmDialogList, menuFragment, null, null)

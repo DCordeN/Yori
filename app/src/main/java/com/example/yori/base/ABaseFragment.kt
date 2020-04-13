@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatFragment
-import kotlinx.android.synthetic.main.enter_register_activity.*
+import kotlinx.android.synthetic.main.activity_authorization_registration.*
 
 abstract class ABaseFragment : MvpAppCompatFragment() {
 

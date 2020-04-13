@@ -20,7 +20,7 @@ class ContactListActivity : ABaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.contacts_list_layout)
+        setContentView(R.layout.activity_contacts_list)
         supportActionBar?.hide()
 
         replace(R.id.frmContactList, ContactListFragment(), backStack = null, tag = null)

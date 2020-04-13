@@ -8,8 +8,8 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
-import kotlinx.android.synthetic.main.dialogs_fragment.*
-import kotlinx.android.synthetic.main.dialogs_layout.*
+import kotlinx.android.synthetic.main.fragment_dialogs.*
+import kotlinx.android.synthetic.main.activity_dialogs.*
 import javax.inject.Inject
 
 class DialogListMenuFragment : ABaseFragment(),
@@ -35,7 +35,7 @@ class DialogListMenuFragment : ABaseFragment(),
     }
 
     override fun getViewId(): Int {
-        return R.layout.dialogs_fragment
+        return R.layout.fragment_dialogs
     }
 
     override fun getContainer(): ViewGroup? {

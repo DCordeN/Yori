@@ -1,7 +1,6 @@
 package com.example.yori.presentation.credentials.authorization
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -13,8 +12,8 @@ import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.credentials.registration.RegistrationFragment
-import kotlinx.android.synthetic.main.enter_fragment.*
-import kotlinx.android.synthetic.main.enter_register_activity.*
+import kotlinx.android.synthetic.main.fragment_authorization.*
+import kotlinx.android.synthetic.main.activity_authorization_registration.*
 import javax.inject.Inject
 
 class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
@@ -49,7 +48,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     }
 
     override fun getViewId(): Int {
-        return R.layout.enter_fragment
+        return R.layout.fragment_authorization
     }
 
     override fun onError(message: String?){

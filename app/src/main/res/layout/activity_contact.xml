@@ -2,14 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/main_gradient"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
+        android:layout_height="60dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -20,23 +21,25 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/arrow_back"
+        android:id="@+id/ib_arrow_back"
         android:layout_width="25dp"
         android:layout_height="20dp"
         android:adjustViewBounds="false"
         android:background="@null"
         android:cropToPadding="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/arrow_back" />
 
     <ImageView
-        android:id="@+id/avatar"
+        android:id="@+id/iv_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +51,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="user "
@@ -57,11 +60,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
         app:layout_constraintVertical_bias="0.037" />
 
     <TextView
-        android:id="@+id/desc_email"
+        android:id="@+id/tv_description_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/profile_email"
@@ -75,7 +78,7 @@
         app:layout_constraintVertical_bias="0.325" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="some@gmail.com"
@@ -85,23 +88,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desc_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description_email"
         app:layout_constraintVertical_bias="0.023" />
 
     <ImageView
-        android:id="@+id/letter"
+        android:id="@+id/iv_letter"
         android:layout_width="37dp"
         android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_username"
+        app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/avatar"
+        app:layout_constraintStart_toStartOf="@+id/iv_avatar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@drawable/letter" />
 
     <Switch
-        android:id="@+id/notifications"
+        android:id="@+id/switch_notifications"
         android:layout_width="170dp"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
@@ -112,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/letter"
+        app:layout_constraintTop_toBottomOf="@+id/iv_letter"
         app:layout_constraintVertical_bias="0.398" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

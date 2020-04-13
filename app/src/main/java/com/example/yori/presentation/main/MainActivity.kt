@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialogs_layout)
+        setContentView(R.layout.activity_dialogs)
 
         if (savedInstanceState != null)
             return

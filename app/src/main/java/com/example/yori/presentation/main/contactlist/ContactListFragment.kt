@@ -9,7 +9,7 @@ import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.domain.repositories.models.ContactItem
-import kotlinx.android.synthetic.main.contacts_list_layout.*
+import kotlinx.android.synthetic.main.activity_contacts_list.*
 import javax.inject.Inject
 
 class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHolder>(), IContactListView {
@@ -45,7 +45,7 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
     }
 
     override fun getListId(): Int = R.id.rvContacts
-    override fun getViewId(): Int = R.layout.contacts_list_fragment
+    override fun getViewId(): Int = R.layout.fragment_contacts_list
 
     private val adapter = Adapter()
 

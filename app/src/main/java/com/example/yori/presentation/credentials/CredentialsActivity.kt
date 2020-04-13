@@ -10,8 +10,6 @@ import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.domain.repositories.local.UserStorage
 import com.example.yori.presentation.credentials.loading.LoadingFragment
-import kotlinx.android.synthetic.main.enter_fragment.btnRegister
-import kotlinx.android.synthetic.main.loading_fragment.*
 
 
 class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
@@ -34,7 +32,7 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.enter_register_activity)
+        setContentView(R.layout.activity_authorization_registration)
         supportActionBar?.hide();
 
         currentFragment = AuthorizationFragment()
