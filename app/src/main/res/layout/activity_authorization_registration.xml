@@ -5,7 +5,7 @@
     android:id="@+id/enter_register_activity"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/main_gradient"
+    android:background="@drawable/selector_main_gradient"
     android:orientation="vertical">
 
     <ImageView
@@ -14,8 +14,8 @@
         android:layout_height="@dimen/logo_big_size"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/logo_margin_top"
-        app:srcCompat="@drawable/logo"
-        tools:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ic_logo"
+        tools:srcCompat="@drawable/ic_logo" />
 
     <FrameLayout
         android:id="@+id/fl_authorization_registration_embed"

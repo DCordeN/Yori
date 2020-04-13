@@ -14,7 +14,7 @@ class ContactView @JvmOverloads constructor(
     override fun getViewId(): Int = R.layout.item_contact
 
     override fun bind(data: ContactItem) {
-        tvUsername.text = data.login
+        tv_username.text = data.login
     }
 
 }

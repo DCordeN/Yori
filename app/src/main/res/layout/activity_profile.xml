@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_gradient">
+    android:background="@drawable/selector_main_gradient">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012"
-        app:srcCompat="@drawable/arrow_back" />
+        app:srcCompat="@drawable/ic_arrow_back" />
 
     <ImageView
         android:id="@+id/iv_avatar"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
-        app:srcCompat="@drawable/male"
+        app:srcCompat="@drawable/ic_avatar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
         app:layout_constraintVertical_bias="0.037" />
 
     <TextView
@@ -107,7 +107,7 @@
         android:id="@+id/btn_change_password"
         android:layout_width="230dp"
         android:layout_height="51dp"
-        android:background="@drawable/profile_change_password_button_shape"
+        android:background="@drawable/shape_profile_change_password_button"
         android:text="@string/profile_change_password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +120,7 @@
         android:id="@+id/btn_exit"
         android:layout_width="230dp"
         android:layout_height="51dp"
-        android:background="@drawable/profile_exit_button_shape"
+        android:background="@drawable/shape_profile_exit_button"
         android:text="@string/profile_exit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -28,7 +28,7 @@ class DialogListActivity : ABaseActivity() {
         setContentView(R.layout.activity_dialogs)
         supportActionBar?.hide();
 
-        replace(R.id.frmDialogList, menuFragment, null, null)
+        replace(R.id.fl_dialog_list, menuFragment, null, null)
         supportFragmentManager.beginTransaction()
             .hide(menuFragment).
                 commit()
@@ -40,13 +40,13 @@ class DialogListActivity : ABaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        ivHamburger.setOnClickListener{
+        iv_hamburger.setOnClickListener{
             supportFragmentManager.beginTransaction()
                 .show(menuFragment)
                 .commit()
         }
 
-        frmHideFragment.setOnClickListener {
+        fl_hide_fragment.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .hide(menuFragment).
                     commit()

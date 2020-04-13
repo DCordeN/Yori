@@ -80,15 +80,15 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
     }
 
     override fun showAuth() {
-        replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment, backStack = null, tag = null)
+        replace(R.id.fl_authorization_registration_embed, currentFragment, backStack = null, tag = null)
     }
 
     override fun showRegistration() {
-        replace(R.id.frmAuthorizationRegistrationEmbed, currentFragment, backStack = null, tag = null)
+        replace(R.id.fl_authorization_registration_embed, currentFragment, backStack = null, tag = null)
     }
 
     override fun showLoading() {
-        replace(R.id.frmAuthorizationRegistrationEmbed, LoadingFragment(), backStack = null, tag = null)
+        replace(R.id.fl_authorization_registration_embed, LoadingFragment(), backStack = null, tag = null)
     }
 
 }

@@ -5,7 +5,7 @@
     android:id="@+id/dialogs_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_gradient">
+    android:background="@drawable/selector_main_gradient">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,8 +21,8 @@
         android:layout_height="25dp"
         android:layout_marginTop="@dimen/hambMarginTop"
         android:layout_marginStart="@dimen/hambMarginLeft"
-        android:src="@drawable/hamburger_icon"
-        app:srcCompat="@drawable/hamburger_icon" />
+        android:src="@drawable/ic_hamburger"
+        app:srcCompat="@drawable/ic_hamburger" />
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -30,9 +30,9 @@
         android:layout_height="@dimen/logo_size_small"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/logoMarginTop"
-        android:src="@drawable/logo"
-        app:srcCompat="@drawable/logo"
-        tools:srcCompat="@drawable/logo" />
+        android:src="@drawable/ic_logo"
+        app:srcCompat="@drawable/ic_logo"
+        tools:srcCompat="@drawable/ic_logo" />
 
     <ImageView
         android:layout_width="25dp"
@@ -40,8 +40,8 @@
         android:layout_gravity="end"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
-        android:src="@drawable/search"
-        app:srcCompat="@drawable/search" />
+        android:src="@drawable/ic_search"
+        app:srcCompat="@drawable/ic_search" />
 
     <FrameLayout
         android:id="@+id/fl_dialog_list"

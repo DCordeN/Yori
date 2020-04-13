@@ -23,6 +23,6 @@ class ContactListActivity : ABaseActivity() {
         setContentView(R.layout.activity_contacts_list)
         supportActionBar?.hide()
 
-        replace(R.id.frmContactList, ContactListFragment(), backStack = null, tag = null)
+        replace(R.id.fl_contact_list, ContactListFragment(), backStack = null, tag = null)
     }
 }

@@ -25,8 +25,8 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnRegister.setOnClickListener{
-            presenter.registration("${etUsername.text}", "${etPassword.text}")
+        btn_register.setOnClickListener{
+            presenter.registration("${et_username.text}", "${et_password.text}")
         }
     }
 
@@ -39,11 +39,11 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
     }
 
     override fun lock(){
-        visibility(btnRegister, false)
+        visibility(btn_register, false)
     }
 
     override fun unlock(){
-        visibility(btnRegister, true)
+        visibility(btn_register, true)
     }
 
     override fun onError(message: String?){

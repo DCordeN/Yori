@@ -44,7 +44,7 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
         return contacts_list_layout
     }
 
-    override fun getListId(): Int = R.id.rvContacts
+    override fun getListId(): Int = R.id.rv_contacts
     override fun getViewId(): Int = R.layout.fragment_contacts_list
 
     private val adapter = Adapter()

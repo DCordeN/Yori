@@ -4,7 +4,7 @@
     android:id="@+id/contacts_list_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_gradient"
+    android:background="@drawable/selector_main_gradient"
     android:fillViewport="true"
     android:orientation="vertical">
 
@@ -26,7 +26,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:visibility="visible"
-        app:srcCompat="@drawable/arrow_back" />
+        app:srcCompat="@drawable/ic_arrow_back" />
 
     <TextView
         android:id="@+id/tv_description_contacts"
@@ -44,8 +44,8 @@
         android:layout_gravity="end"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
-        android:src="@drawable/search"
-        app:srcCompat="@drawable/search" />
+        android:src="@drawable/ic_search"
+        app:srcCompat="@drawable/ic_search" />
 
     <FrameLayout
         android:id="@+id/fl_contact_list"

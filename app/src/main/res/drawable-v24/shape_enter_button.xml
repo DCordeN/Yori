@@ -4,8 +4,8 @@
         android:radius="14dp"
         />
     <solid
-        android:color="@color/profile_change_password_button_color"
-        />
+        android:color="@color/authorization_enter_button"
+    />
     <padding
         android:left="0dp"
         android:top="0dp"
@@ -18,6 +18,6 @@
         />
     <stroke
         android:width="3dp"
-        android:color="@color/enter_button_color"
+        android:color="@color/authorization_enter_button"
         />
 </shape>

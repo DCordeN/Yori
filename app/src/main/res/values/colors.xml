@@ -3,13 +3,14 @@
     <color name="colorPrimary">#56BD69</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#7ADD56</color>
-    <color name="mainColorBegin">#5BF87B</color>
-    <color name="mainColorEnd">#CDDC39</color>
 
-    <color name="enter_button_color">#218555</color>
-    <color name="register_button_color">#BF9430</color>
-    <color name="register_button_font_color">#7CCA32</color>
-    <color name="registration_button_color">#1E796A	</color>
-    <color name="profile_change_password_button_color">#BF9430</color>
-    <color name="profile_exit_button_color">#9A001E</color>
+    <color name="authorization_enter_button">#218555</color>
+    <color name="authorization_register_button">#BF9430</color>
+    <color name="menu_dialogs">#00574B</color>
+    <color name="profile_change_password_button">#BF9430</color>
+    <color name="profile_exit_button">#9A001E</color>
+    <color name="registration_register_button">#1E796A</color>
+    <color name="selector_main_gradient_begin">#5BF87B</color>
+    <color name="selector_main_gradient_end">#CDDC39</color>
+
 </resources>

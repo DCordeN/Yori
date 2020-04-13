@@ -1,15 +1,18 @@
 <resources>
     <string name="app_name">Yori</string>
-    <string name="enter_username_string">Username:</string>
-    <string name="enter_password_string">Password:</string>
-    <string name="enter_button_string">Войти</string>
-    <string name="register_button_string">Регистрация</string>
+
+    <string name="authorization_enter_username_hint">Username:</string>
+    <string name="authorization_enter_password_hint">Password:</string>
+    <string name="authorization_enter_button">Войти</string>
+    <string name="authorization_register_button">Регистрация</string>
+
     <string name="registration_text">Регистрация</string>
     <string name="registration_email">Email:</string>
-    <string name="registration_username">Username:</string>
-    <string name="resistration_password">Password:</string>
-    <string name="registration_confirm_password">Confirm password:</string>
-    <string name="registration_register">Зарегистрироваться</string>
+    <string name="registration_enter_username_hint">Username:</string>
+    <string name="registration_enter_password_hint">Password:</string>
+    <string name="registration_confirm_password_hint">Confirm password:</string>
+    <string name="registration_register_button">Зарегистрироваться</string>
+
     <string name="profile_email">Email:</string>
     <string name="profile_notifications">Уведомления</string>
     <string name="profile_change_password">Сменить пароль</string>

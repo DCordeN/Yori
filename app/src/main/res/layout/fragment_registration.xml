@@ -6,12 +6,27 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:id="@+id/et_username"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="@string/registration_enter_username_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <EditText
         android:id="@+id/et_password"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="@string/resistration_password"
+        android:hint="@string/registration_enter_password_hint"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +41,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="@string/registration_confirm_password"
+        android:hint="@string/registration_confirm_password_hint"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +54,9 @@
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/registration_button_shape"
+        android:background="@drawable/shape_registration_register_button"
         android:fontFamily="casual"
-        android:text="@string/registration_register"
+        android:text="@string/registration_register_button"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,19 +66,5 @@
         app:layout_constraintVertical_bias="0.249"
         app:layout_goneMarginTop="200dp" />
 
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:fontFamily="casual"
-        android:hint="@string/registration_username"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

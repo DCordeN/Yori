@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_gradient"
+    android:background="@drawable/selector_main_gradient"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/arrow_back" />
+        app:srcCompat="@drawable/ic_arrow_back" />
 
     <ImageView
         android:id="@+id/iv_avatar"
@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
-        app:srcCompat="@drawable/male"
+        app:srcCompat="@drawable/ic_avatar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="@+id/iv_avatar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.7"
-        app:srcCompat="@drawable/letter" />
+        app:srcCompat="@drawable/ic_letter" />
 
     <Switch
         android:id="@+id/switch_notifications"
