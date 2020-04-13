@@ -2,14 +2,14 @@ package com.example.yori.presentation.credentials
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.yori.presentation.credentials.authorization.AuthorizationFragment
-import com.example.yori.presentation.credentials.registration.RegistrationFragment
 import androidx.fragment.app.Fragment
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.domain.repositories.local.UserStorage
+import com.example.yori.presentation.credentials.authorization.AuthorizationFragment
 import com.example.yori.presentation.credentials.loading.LoadingFragment
+import com.example.yori.presentation.credentials.registration.RegistrationFragment
 
 
 class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
@@ -30,14 +30,15 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
 
     lateinit var currentFragment: Fragment
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authorization_registration)
-        supportActionBar?.hide();
+        supportActionBar?.hide()
 
         currentFragment = AuthorizationFragment()
 
-        if(savedInstanceState == null)
+        if (savedInstanceState == null)
             showAuth()
 
         if (intent.getBooleanExtra(ARG_DROP_CREDENTIALS, false)) {
@@ -50,10 +51,10 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
         showLoading()
     }
 
-
     override fun onBackPressed() {
-        var intent = getIntent()
-        if(currentFragment is AuthorizationFragment)
+        //val intent = intent
+
+        if (currentFragment is AuthorizationFragment)
             finish()
         else {
             finish()
@@ -64,31 +65,40 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        if(currentFragment is AuthorizationFragment)
+        if (currentFragment is AuthorizationFragment)
             outState.putString("Auth", "Auth")
-        else if(currentFragment is RegistrationFragment)
+        else if (currentFragment is RegistrationFragment)
             outState.putString("Reg", "Reg")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        if(savedInstanceState.getString("Auth") == "Auth")
+        if (savedInstanceState.getString("Auth") == "Auth")
             currentFragment = AuthorizationFragment()
         else if (savedInstanceState.getString("Reg") == "Reg")
             currentFragment = RegistrationFragment()
     }
 
     override fun showAuth() {
-        replace(R.id.fl_authorization_registration_embed, currentFragment, backStack = null, tag = null)
+        replace(
+            R.id.fl_authorization_registration_embed, currentFragment,
+            backStack = null, tag = null
+        )
     }
 
     override fun showRegistration() {
-        replace(R.id.fl_authorization_registration_embed, currentFragment, backStack = null, tag = null)
+        replace(
+            R.id.fl_authorization_registration_embed, currentFragment,
+            backStack = null, tag = null
+        )
     }
 
     override fun showLoading() {
-        replace(R.id.fl_authorization_registration_embed, LoadingFragment(), backStack = null, tag = null)
+        replace(
+            R.id.fl_authorization_registration_embed, LoadingFragment(),
+            backStack = null, tag = null
+        )
     }
 
 }

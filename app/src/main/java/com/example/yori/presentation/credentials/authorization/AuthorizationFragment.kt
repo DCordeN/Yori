@@ -25,6 +25,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     @ProvidePresenter
     fun providePresenter() = presenter
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,12 +52,12 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
         return R.layout.fragment_authorization
     }
 
-    override fun onError(message: String?){
+    override fun onError(message: String?) {
         Toast.makeText(context, "Упс! Что-то пошло не так!", Toast.LENGTH_SHORT).show()
     }
 
     override fun getContainer(): ViewGroup? {
-        return enter_register_activity
+        return fl_authorization_registration_activity
     }
 
 }

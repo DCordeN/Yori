@@ -17,17 +17,19 @@ class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
     @Inject
     constructor()
 
+
     fun authorize(login: String, pass: String) {
         userRepository.login(SubRX {_, e ->
-            if (e != null){
+            if (e != null) {
                 e.printStackTrace()
+                Log.e("${userRepository.getToken()}", "ert")
                 if(e.localizedMessage == "HTTP 400 ")
                     viewState.onError(e.localizedMessage)
                 return@SubRX
             }
             DialogListActivity.show()
         }, login, pass)
-        Log.e("${userRepository.getToken()}", "ert")
+
     }
 
     fun loadUsers() {

@@ -21,10 +21,10 @@ class LoadingPresenter: MvpPresenter<ILoadingView> {
         loadStaticResources()
     }
 
-    fun loadStaticResources(){
+    fun loadStaticResources() {
         viewState.onRotate()
 
-        Handler().postDelayed({
+        Handler().postDelayed( {
             viewState.onLoadingComplete()
         }, 2000)
     }

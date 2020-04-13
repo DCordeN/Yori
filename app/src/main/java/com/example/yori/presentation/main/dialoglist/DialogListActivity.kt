@@ -30,8 +30,8 @@ class DialogListActivity : ABaseActivity() {
 
         replace(R.id.fl_dialog_list, menuFragment, null, null)
         supportFragmentManager.beginTransaction()
-            .hide(menuFragment).
-                commit()
+            .hide(menuFragment)
+            .commit()
 
 
         if (savedInstanceState != null)
@@ -48,8 +48,8 @@ class DialogListActivity : ABaseActivity() {
 
         fl_hide_fragment.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .hide(menuFragment).
-                    commit()
+                .hide(menuFragment)
+                .commit()
         }
     }
 

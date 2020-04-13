@@ -12,7 +12,7 @@ import javax.inject.Inject
 class UserStorage {
 
     private var user: User? = null
-    private var users: List<User?> = arrayListOf()
+    private var contacts: List<User?> = arrayListOf()
 
     @Inject
     constructor()
@@ -65,8 +65,9 @@ class UserStorage {
         }
     }
 
-    fun save(users: List<User?>) {
-        this.users = users
+    fun save(contacts: List<User?>) {
+        this.contacts = contacts
     }
+
 
 }

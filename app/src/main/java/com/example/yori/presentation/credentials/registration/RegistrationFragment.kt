@@ -25,7 +25,7 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_register.setOnClickListener{
+        btn_register.setOnClickListener {
             presenter.registration("${et_username.text}", "${et_password.text}")
         }
     }
@@ -38,20 +38,20 @@ class RegistrationFragment : ABaseFragment(), IRegistrationView {
         return R.layout.fragment_registration
     }
 
-    override fun lock(){
+    override fun lock() {
         visibility(btn_register, false)
     }
 
-    override fun unlock(){
+    override fun unlock() {
         visibility(btn_register, true)
     }
 
-    override fun onError(message: String?){
+    override fun onError(message: String?) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 
     override fun getContainer(): ViewGroup? {
-        return enter_register_activity
+        return fl_authorization_registration_activity
     }
 
 }

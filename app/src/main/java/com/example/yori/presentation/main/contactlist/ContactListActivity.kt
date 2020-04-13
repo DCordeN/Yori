@@ -5,8 +5,10 @@ import android.os.Bundle
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
+import com.example.yori.presentation.main.contactlist.search.SearchListFragment
+import kotlinx.android.synthetic.main.activity_contacts_list.*
 
-class ContactListActivity : ABaseActivity() {
+class ContactListActivity : ABaseActivity(), IContactListRouter {
 
     companion object {
         fun show() {
@@ -24,5 +26,19 @@ class ContactListActivity : ABaseActivity() {
         supportActionBar?.hide()
 
         replace(R.id.fl_contact_list, ContactListFragment(), backStack = null, tag = null)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        iv_search.setOnClickListener {
+            showSearch()
+        }
+    }
+
+    override fun showSearch() {
+        replace(
+            R.id.fl_contact_list, SearchListFragment(),
+            backStack = null, tag = null
+        )
     }
 }

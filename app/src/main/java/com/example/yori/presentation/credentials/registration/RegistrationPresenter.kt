@@ -24,7 +24,7 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
         userRepository.registration(SubRX {
             _, e -> viewState.unlock()
 
-            if(e != null){
+            if (e != null) {
                 e.printStackTrace()
                 viewState.onError(e.localizedMessage)
                 return@SubRX

@@ -3,6 +3,7 @@ package com.example.yori.presentation.main.contactlist
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.domain.repositories.ContactsRepository
+import com.example.yori.domain.repositories.UserRepository
 import javax.inject.Inject
 
 @InjectViewState

@@ -24,6 +24,5 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null)
             return
-
     }
 }

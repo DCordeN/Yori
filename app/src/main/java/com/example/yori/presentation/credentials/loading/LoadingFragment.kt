@@ -25,19 +25,19 @@ class LoadingFragment: ABaseFragment(), ILoadingView {
 
     override fun onLoadingComplete() {
         activity?.let {
-            if(it is ICredentialsRouter) {
+            if (it is ICredentialsRouter) {
                 Log.e("Loading", "load")
                 it.showAuth()
-
             }
         }
     }
 
     override fun onRotate(){
-
-        var objAn: ObjectAnimator = ObjectAnimator.ofFloat(progress_bar, "progress", 5f, 100f)
-        objAn.setDuration(1500)
-        objAn.setInterpolator(DecelerateInterpolator(2f))
+        var objAn: ObjectAnimator = ObjectAnimator.ofFloat(
+            progress_bar, "progress", 5f, 100f
+        )
+        objAn.duration = 1500
+        objAn.interpolator = DecelerateInterpolator(2f)
         objAn.start()
     }
 
@@ -50,6 +50,6 @@ class LoadingFragment: ABaseFragment(), ILoadingView {
     }
 
     override fun getContainer(): ViewGroup? {
-        return enter_register_activity
+        return fl_authorization_registration_activity
     }
 }
