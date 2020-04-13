@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
@@ -49,7 +50,7 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
     }
 
     override fun inject() {
-        DaggerAppComponent.create().inject(this)
+        App.appComponent.inject(this)
     }
 
     override fun getContainer(): ViewGroup? {

@@ -32,7 +32,7 @@ class UserRepository {
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
 
-        Log.e("${storage.getUser()}", "123")
+        Log.e("${storage.getUser()}", "123123123123123")
     }
 
 

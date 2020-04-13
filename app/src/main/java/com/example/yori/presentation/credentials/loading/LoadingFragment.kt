@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
@@ -42,7 +43,7 @@ class LoadingFragment: ABaseFragment(), ILoadingView {
     }
 
     override fun inject() {
-        DaggerAppComponent.create().inject(this)
+        App.appComponent.inject(this)
     }
 
     override fun getViewId(): Int {

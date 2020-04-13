@@ -30,6 +30,8 @@ class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
             DialogListActivity.show()
         }, login, pass)
 
+        //loadUsers()
+
     }
 
     fun loadUsers() {

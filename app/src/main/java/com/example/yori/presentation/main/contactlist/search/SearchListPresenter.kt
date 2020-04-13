@@ -18,18 +18,16 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
     }
 
 
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
 
+    fun loadUsers() {
         repository.users(SubRX { _, e ->
             if (e != null) {
                 e.printStackTrace()
+
                 return@SubRX
             }
-        }, repository.getToken()
-        )
-
-        Log.e("${repository.getUser()}", "er")
+        }, repository.getToken())
+        Log.e("${repository.getUser()}", "123")
     }
 
 

@@ -5,8 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.yori.App
 import com.example.yori.R
+import com.example.yori.base.ABaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ABaseActivity() {
 
     companion object {
         fun show() {

@@ -7,8 +7,10 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
+import com.example.yori.domain.di.components.AppComponent
 import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.credentials.registration.RegistrationFragment
@@ -45,7 +47,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     }
 
     override fun inject() {
-        DaggerAppComponent.create().inject(this)
+        App.appComponent.inject(this)
     }
 
     override fun getViewId(): Int {
