@@ -11,18 +11,19 @@ import javax.inject.Inject
 @InjectViewState
 class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
 
-    @Inject
-    lateinit var userRepository: UserRepository
+    private val userRepository: UserRepository
 
     @Inject
-    constructor()
+    constructor(repository: UserRepository) {
+        this.userRepository = repository
+    }
 
 
     fun authorize(login: String, pass: String) {
         userRepository.login(SubRX {_, e ->
             if (e != null) {
                 e.printStackTrace()
-                Log.e("${userRepository.getToken()}", "ert")
+                //Log.e("${userRepository.getUser()?.token}", "ert")
                 if(e.localizedMessage == "HTTP 400 ")
                     viewState.onError(e.localizedMessage)
                 return@SubRX
@@ -42,7 +43,7 @@ class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
                     viewState.onError(e.localizedMessage)
                 return@SubRX
             }
-        }, userRepository.getToken())
+        }, userRepository.getUser()?.token)
     }
 
 

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
@@ -23,7 +24,7 @@ class DialogListMenuFragment : ABaseFragment(),
     fun providePresenter() = presenter
 
     override fun inject() {
-        DaggerAppComponent.create().inject(this)
+        App.appComponent.inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

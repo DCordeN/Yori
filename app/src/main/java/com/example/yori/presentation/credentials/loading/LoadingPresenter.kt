@@ -31,12 +31,12 @@ class LoadingPresenter: MvpPresenter<ILoadingView> {
         viewState.onRotate()
 
         Handler().postDelayed( {
-            //viewState.onLoadingComplete()
-            val user = userRepository.getUser()
-            if (user != null) {
-                DialogListActivity.show()
-                return@postDelayed
-            }
+//            viewState.onLoadingComplete()
+//            val user = userRepository.getUser()
+//            if (user != null) {
+//               DialogListActivity.show()
+//               return@postDelayed
+//            }
 
             viewState.onLoadingComplete()
         }, 2000)

@@ -1,5 +1,6 @@
 package com.example.yori.domain.repositories.rest
 
+import android.util.Log
 import com.example.yori.domain.repositories.models.rest.Token
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.exceptions.AuthException
@@ -20,7 +21,6 @@ class TokenInterceptor: Interceptor {
     private val userRepository: UserRepository
     private val lock = ReentrantLock()
 
-    @Inject
     constructor(userRepository: UserRepository) {
         this.userRepository = userRepository
     }
@@ -28,7 +28,7 @@ class TokenInterceptor: Interceptor {
 
     override fun intercept(inChain: Interceptor.Chain?): Response {
 
-        val chain = inChain ?: throw IllegalArgumentException("Chain is NULL")
+        val chain = inChain ?: throw IllegalArgumentException("Chain is NULL") as Throwable
 
         var token = userRepository.getUser()?.token
         if (token == null) {
@@ -85,6 +85,8 @@ class TokenInterceptor: Interceptor {
             .addHeader("Accept", "application/json")
             .addHeader(HEADER_AUTHORIZATION, token.access)
             .build()
+
+        Log.d("REST", "${request.headers()}")
 
         return request
     }

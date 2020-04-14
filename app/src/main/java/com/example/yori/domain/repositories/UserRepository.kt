@@ -23,16 +23,12 @@ class UserRepository {
         this.rest = rest
     }
 
-    fun getToken() = storage.getToken()
-
     fun getUser() = storage.getUser()
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
         rest.login(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
-
-        Log.e("${storage.getUser()}", "123123123123123")
     }
 
 
@@ -58,13 +54,11 @@ class UserRepository {
     }
 
     fun users(observer: SubRX<List<User>>, token: Token?) {
-        var temp: Token
         if (token != null) {
-            temp = token
-
-        rest.users(accessToken = temp.access)
-            .doOnNext { storage.save(it) }
-            .standardSubscribeIO(observer) }
+            rest.users(accessToken = token.access)
+                .doOnNext { storage.save(it) }
+                .standardSubscribeIO(observer)
+        }
     }
 
 

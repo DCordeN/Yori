@@ -42,7 +42,7 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
             showAuth()
 
         if (intent.getBooleanExtra(ARG_DROP_CREDENTIALS, false)) {
-            //UserStorage().dropCredentials()
+            UserStorage().dropCredentials()
             showAuth()
             return
         }

@@ -18,16 +18,17 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
     }
 
 
-
     fun loadUsers() {
         repository.users(SubRX { _, e ->
+            e?.printStackTrace()
+            //Log.e("${repository.getUser()}", "123")
             if (e != null) {
                 e.printStackTrace()
 
                 return@SubRX
             }
-        }, repository.getToken())
-        Log.e("${repository.getUser()}", "123")
+        }, repository.getUser()?.token)
+
     }
 
 

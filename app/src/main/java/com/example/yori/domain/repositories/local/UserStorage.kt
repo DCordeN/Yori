@@ -28,10 +28,6 @@ class UserStorage {
         }
     }
 
-    fun getToken(): Token? {
-        return user?.token
-    }
-
     fun getUser(): User? {
         user?.let {
             return it
@@ -67,6 +63,12 @@ class UserStorage {
 
     fun save(contacts: List<User?>) {
         this.contacts = contacts
+
+        Realm.getDefaultInstance().use {
+            it.executeTransaction { realm ->
+                user.toRealm()?.let { realm.copyToRealmOrUpdate(it) }
+            }
+        }
     }
 
 

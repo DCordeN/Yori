@@ -67,9 +67,8 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sv_search.setOnClickListener {
-            presenter.loadUsers()
-        }
+        presenter.loadUsers()
+
     }
 
 
