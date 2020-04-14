@@ -1,5 +1,7 @@
 package com.example.yori.domain.repositories.local
 
+import android.util.Log
+import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.domain.repositories.models.realm.TokenRealm
 import com.example.yori.domain.repositories.models.realm.UserRealm
 import com.example.yori.domain.repositories.models.rest.Token
@@ -13,6 +15,7 @@ class UserStorage {
 
     private var user: User? = null
     private var contacts: List<User?> = arrayListOf()
+    private var searchItems: MutableList<SearchItem> = arrayListOf()
 
     @Inject
     constructor()
@@ -36,6 +39,19 @@ class UserStorage {
         Realm.getDefaultInstance().use {
             return it.where(UserRealm::class.java).findFirst()?.toBase().apply { user = this}
         }
+    }
+
+    fun getContacts(): List<User?> {
+        return contacts
+    }
+
+    fun getSearchItems(): List<SearchItem> {
+        for (item in contacts) {
+            searchItems.add(SearchItem(item?.avatarUrl, item?.login.toString()))
+        }
+        Log.e("$searchItems", "123")
+
+        return searchItems.toList()
     }
 
     fun save(token: Token){

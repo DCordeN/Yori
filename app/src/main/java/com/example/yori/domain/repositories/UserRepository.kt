@@ -24,6 +24,8 @@ class UserRepository {
     }
 
     fun getUser() = storage.getUser()
+    fun getContacts() = storage.getContacts()
+    fun getSearchItems() = storage.getSearchItems()
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
         rest.login(login, pass)

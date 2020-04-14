@@ -1,6 +1,7 @@
 package com.example.yori.presentation.main.contactlist.search
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -68,7 +69,6 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
         super.onViewCreated(view, savedInstanceState)
 
         presenter.loadUsers()
-
     }
 
 
