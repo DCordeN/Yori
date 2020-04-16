@@ -22,7 +22,6 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
     fun loadUsers() {
         repository.users(SubRX { _, e ->
             //e?.printStackTrace()
-            Log.e("${repository.getSearchItems().size}", "123123")
             viewState.bindSearchItems(repository.getSearchItems())
             if (e != null) {
                 e.printStackTrace()

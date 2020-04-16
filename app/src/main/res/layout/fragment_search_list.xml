@@ -6,11 +6,13 @@
     <SearchView
         android:id="@+id/sv_search"
         android:layout_width="250dp"
-        android:layout_height="25dp" />
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp" />
 
 </FrameLayout>

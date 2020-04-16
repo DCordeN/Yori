@@ -3,7 +3,7 @@
     <dimen name="logo_big_size">75dp</dimen>
     <dimen name="logo_margin_top">32dp</dimen>
     <dimen name="logo_size_small">40dp</dimen>
-    <dimen name="hambMarginTop">25dp</dimen>
-    <dimen name="hambMarginLeft">20dp</dimen>
+    <dimen name="hambMarginTop">15dp</dimen>
+    <dimen name="hambMarginLeft">10dp</dimen>
     <dimen name="logoMarginTop">15dp</dimen>
 </resources>

@@ -2,6 +2,8 @@ package com.example.yori.presentation.main.contactlist.search
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
+import android.view.View
 import com.example.yori.R
 import com.example.yori.base.ABaseView
 import com.example.yori.domain.repositories.models.SearchItem
@@ -15,5 +17,10 @@ class SearchView @JvmOverloads constructor(
 
     override fun bind(data: SearchItem) {
         tv_username.text = data.username
+        tv_username.setOnClickListener {
+            Log.e("${tv_username.text}", "123123123")
+        }
     }
+
+
 }
