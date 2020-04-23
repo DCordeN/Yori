@@ -42,17 +42,4 @@ class UserRestApi : ABaseRestApi<IUserRestApiService> {
                     password = password
                 )
             )
-
-    fun users(accessToken: String)
-            = service.users(accessToken)
-
-
-
-
-
-
-
-
-
-
 }

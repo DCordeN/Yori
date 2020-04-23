@@ -14,8 +14,7 @@ import javax.inject.Inject
 class UserStorage {
 
     private var user: User? = null
-    private var contacts: List<User?> = arrayListOf()
-    private var searchItems: MutableList<SearchItem> = arrayListOf()
+
 
     @Inject
     constructor()
@@ -41,19 +40,6 @@ class UserStorage {
         }
     }
 
-    fun getContacts(): List<User?> {
-        return contacts
-    }
-
-    fun getSearchItems(): List<SearchItem> {
-        for (item in contacts) {
-            searchItems.add(SearchItem(item?.avatarUrl, item?.login.toString()))
-        }
-        Log.e("$searchItems", "123")
-
-        return searchItems.toList()
-    }
-
     fun save(token: Token){
         user?.token = token
 
@@ -69,16 +55,6 @@ class UserStorage {
 
     fun save(user: User) {
         this.user = user
-
-        Realm.getDefaultInstance().use {
-            it.executeTransaction { realm ->
-                user.toRealm()?.let { realm.copyToRealmOrUpdate(it) }
-            }
-        }
-    }
-
-    fun save(contacts: List<User?>) {
-        this.contacts = contacts
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
