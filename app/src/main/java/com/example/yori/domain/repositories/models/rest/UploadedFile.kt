@@ -1,4 +1,5 @@
 package com.example.yori.domain.repositories.models.rest
 
-class UploadedFile {
-}
+data class UploadedFile(
+    val path: String?
+)

@@ -1,33 +1,33 @@
 package com.example.yori.presentation.main.contactlist.search
 
-import android.os.Handler
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
+import com.example.yori.domain.repositories.UsersRepository
 import javax.inject.Inject
 
 @InjectViewState
 class SearchListPresenter : MvpPresenter<ISearchListView> {
 
-    private val repository: UserRepository
+    private val userRepository: UserRepository
+    private val usersRepository: UsersRepository
 
     @Inject
-    constructor(repository: UserRepository) {
-        this.repository = repository
+    constructor(userRepository: UserRepository, usersRepository: UsersRepository) {
+        this.userRepository = userRepository
+        this.usersRepository = usersRepository
     }
 
 
     fun loadUsers() {
-        repository.users(SubRX { _, e ->
-            //e?.printStackTrace()
-            viewState.bindSearchItems(repository.getSearchItems())
+        usersRepository.users(SubRX { _, e ->
+            viewState.bindSearchItems(usersRepository.getSearchItems())
             if (e != null) {
                 e.printStackTrace()
                 return@SubRX
             }
-        }, repository.getUser()?.token)
+        }, userRepository.getUser()?.token)
 
 
     }

@@ -33,6 +33,9 @@ class ContactListActivity : ABaseActivity(), IContactListRouter {
         iv_search.setOnClickListener {
             showSearch()
         }
+        iv_arrow_back.setOnClickListener {
+            showContactsList()
+        }
     }
 
     override fun showSearch() {
@@ -40,5 +43,14 @@ class ContactListActivity : ABaseActivity(), IContactListRouter {
             R.id.fl_contact_list, SearchListFragment(),
             backStack = null, tag = null
         )
+        tv_description_contacts.text = "Поиск"
+    }
+
+    override fun showContactsList() {
+        replace(
+            R.id.fl_contact_list, ContactListFragment(),
+            backStack = null, tag = null
+        )
+        tv_description_contacts.text = "Контакты"
     }
 }

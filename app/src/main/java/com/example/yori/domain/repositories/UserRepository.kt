@@ -1,11 +1,9 @@
 package com.example.yori.domain.repositories
 
 import android.os.SystemClock
-import android.util.Log
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
-import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.domain.repositories.models.rest.Token
 import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.rest.api.UserRestApi
@@ -24,8 +22,6 @@ class UserRepository {
     }
 
     fun getUser() = storage.getUser()
-    fun getContacts() = storage.getContacts()
-    fun getSearchItems() = storage.getSearchItems()
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
         rest.login(login, pass)
@@ -53,14 +49,6 @@ class UserRepository {
         rest.registration(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
-    }
-
-    fun users(observer: SubRX<List<User>>, token: Token?) {
-        if (token != null) {
-            rest.users(accessToken = token.access)
-                .doOnNext { storage.save(it) }
-                .standardSubscribeIO(observer)
-        }
     }
 
 

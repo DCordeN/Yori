@@ -1,4 +1,7 @@
 package com.example.yori.domain.repositories.models.realm
 
-class UploadedFileRealm {
+import io.realm.RealmObject
+
+open class UploadedFileRealm : RealmObject() {
+    var path: String? = null
 }

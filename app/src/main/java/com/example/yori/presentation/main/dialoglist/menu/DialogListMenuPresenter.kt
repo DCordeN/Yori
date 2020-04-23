@@ -18,6 +18,10 @@ class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
         this.repository = repository
     }
 
+    fun getUsername(): String? {
+        return repository.getUser()?.login
+    }
+
     fun showContacts() {
         ContactListActivity.show()
     }

@@ -3,7 +3,6 @@ package com.example.yori.presentation.main.contactlist.search
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
-import android.view.View
 import com.example.yori.R
 import com.example.yori.base.ABaseView
 import com.example.yori.domain.repositories.models.SearchItem

@@ -31,21 +31,7 @@ class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
             DialogListActivity.show()
         }, login, pass)
 
-        //loadUsers()
-
     }
-
-    fun loadUsers() {
-        userRepository.users(SubRX {_, e ->
-            if (e != null) {
-                e.printStackTrace()
-                if(e.localizedMessage == "HTTP 400 ")
-                    viewState.onError(e.localizedMessage)
-                return@SubRX
-            }
-        }, userRepository.getUser()?.token)
-    }
-
 
 
 }

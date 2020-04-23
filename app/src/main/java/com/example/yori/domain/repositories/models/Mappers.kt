@@ -1,13 +1,7 @@
 package com.example.yori.domain.repositories.models
 
-import com.example.yori.domain.repositories.models.realm.MessageRealm
-import com.example.yori.domain.repositories.models.realm.TokenRealm
-import com.example.yori.domain.repositories.models.realm.UserRealm
-import com.example.yori.domain.repositories.models.realm.UserUpdateRealm
-import com.example.yori.domain.repositories.models.rest.Message
-import com.example.yori.domain.repositories.models.rest.Token
-import com.example.yori.domain.repositories.models.rest.User
-import com.example.yori.domain.repositories.models.rest.UserUpdate
+import com.example.yori.domain.repositories.models.realm.*
+import com.example.yori.domain.repositories.models.rest.*
 
 fun Message?.toRealm(): MessageRealm? {
     this ?: return null
@@ -64,8 +58,28 @@ fun User?.toRealm(): UserRealm? {
 fun UserRealm?.toBase(): User? {
     this ?: return null
 
-    return  User(
-        id, login ?: "", password ?: "", avatarUrl, token.toBase()
+    return User(
+        avatarUrl, id, login ?: "", password ?: "",  token.toBase()
+    )
+}
+
+fun UserEntity?.toRealm(): UserEntityRealm? {
+    this ?: return null
+
+    return UserEntityRealm().let {
+        it.id = id ?: 0
+        it.login = login
+        it.password = password
+        it.avatarUrl = avatarUrl
+        it
+    }
+}
+
+fun UserEntityRealm?.toBase(): UserEntity? {
+    this ?: return null
+
+    return UserEntity(
+        avatarUrl, id, login ?: "", password ?: ""
     )
 }
 
@@ -89,5 +103,22 @@ fun UserUpdateRealm?.toBase(): UserUpdate? {
         avatarSuccess, newAvatarUrl ?: "",
         newPassword ?: "", oldPassword ?: "",
         passwordSuccess
+    )
+}
+
+fun UploadedFile?.toRealm(): UploadedFileRealm? {
+    this ?: return null
+
+    return UploadedFileRealm().let {
+        it.path = path
+        it
+    }
+}
+
+fun UploadedFileRealm?.toBase(): UploadedFile? {
+    this ?: return null
+
+    return UploadedFile(
+        path
     )
 }

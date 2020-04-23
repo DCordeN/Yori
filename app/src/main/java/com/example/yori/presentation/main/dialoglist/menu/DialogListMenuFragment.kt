@@ -29,6 +29,7 @@ class DialogListMenuFragment : ABaseFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tv_profile.text = presenter.getUsername()
 
         tv_contacts.setOnClickListener {
             presenter.showContacts()
