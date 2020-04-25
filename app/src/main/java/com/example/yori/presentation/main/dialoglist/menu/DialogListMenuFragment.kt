@@ -34,6 +34,10 @@ class DialogListMenuFragment : ABaseFragment(),
         tv_contacts.setOnClickListener {
             presenter.showContacts()
         }
+
+        tv_profile.setOnClickListener {
+            presenter.showProfile()
+        }
     }
 
     override fun getViewId(): Int {

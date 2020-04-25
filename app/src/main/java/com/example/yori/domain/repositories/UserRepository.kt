@@ -29,6 +29,13 @@ class UserRepository {
             .standardSubscribeIO(observer)
     }
 
+    fun logout(observer: SubRX<User>, token: Token?) {
+        if (token != null) {
+            rest.logout(token.access)
+                .doOnNext { storage.dropCredentials()}
+                .standardSubscribeIO(observer)
+        }
+    }
 
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
         val response = rest.refreshToken(token.refresh).execute()

@@ -7,6 +7,7 @@ import com.example.yori.presentation.credentials.registration.RegistrationFragme
 import com.example.yori.presentation.main.contactlist.ContactListFragment
 import com.example.yori.presentation.main.contactlist.search.SearchListFragment
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
+import com.example.yori.presentation.main.profile.ProfileActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -22,4 +23,5 @@ interface AppComponent {
     fun inject(target: DialogListMenuFragment)
     fun inject(target: ContactListFragment)
     fun inject(target: SearchListFragment)
+    fun inject(target: ProfileActivity)
 }
