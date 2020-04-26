@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.yori.R
 import com.example.yori.base.ABaseView
 import com.example.yori.domain.repositories.models.SearchItem
+import com.example.yori.presentation.main.profile.ProfileActivity
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class SearchView @JvmOverloads constructor(
@@ -17,7 +18,8 @@ class SearchView @JvmOverloads constructor(
     override fun bind(data: SearchItem) {
         tv_username.text = data.username
         tv_username.setOnClickListener {
-            Log.e("${tv_username.text}", "123123123")
+            var username = tv_username.text.toString()
+            ProfileActivity.show(username)
         }
     }
 
