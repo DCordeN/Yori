@@ -9,6 +9,7 @@ import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
+import com.example.yori.service.MessengerService
 import kotlinx.android.synthetic.main.fragment_menu_dialogs.*
 import kotlinx.android.synthetic.main.activity_dialogs.*
 import javax.inject.Inject
@@ -38,6 +39,8 @@ class DialogListMenuFragment : ABaseFragment(),
         tv_profile.setOnClickListener {
             presenter.showProfile()
         }
+
+        context?.let { MessengerService.start(it, "t") }
     }
 
     override fun getViewId(): Int {

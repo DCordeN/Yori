@@ -51,6 +51,8 @@ class DialogListActivity : ABaseActivity() {
                 .hide(menuFragment)
                 .commit()
         }
+
+
     }
 
 

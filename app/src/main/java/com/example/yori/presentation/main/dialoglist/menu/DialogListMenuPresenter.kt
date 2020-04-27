@@ -1,10 +1,9 @@
 package com.example.yori.presentation.main.dialoglist.menu
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
+import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.presentation.main.contactlist.ContactListActivity
 import com.example.yori.presentation.main.profile.ProfileActivity
 import javax.inject.Inject
@@ -13,10 +12,12 @@ import javax.inject.Inject
 class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
 
     private val repository: UserRepository
+    private val repositorytemp: MessengerRepository
 
     @Inject
-    constructor(repository: UserRepository) {
+    constructor(repository: UserRepository, repositorytemp: MessengerRepository) {
         this.repository = repository
+        this.repositorytemp = repositorytemp
     }
 
     fun getUsername(): String? {
@@ -29,5 +30,10 @@ class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
 
     fun showProfile() {
         ProfileActivity.show()
+    }
+
+    fun temp() {
+        /*repository.getUser()?.token?.let {
+            repositorytemp.online(it) }*/
     }
 }

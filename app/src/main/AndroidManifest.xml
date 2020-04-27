@@ -24,6 +24,8 @@
         <activity android:name=".presentation.main.contactlist.ContactListActivity" />
         <activity android:name=".presentation.main.MainActivity" />
         <activity android:name=".presentation.main.profile.ProfileActivity" />
+
+        <service android:name=".service.MessengerService" />
     </application>
 
 </manifest>
