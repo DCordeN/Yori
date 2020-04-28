@@ -20,4 +20,8 @@ class MessengerStorage {
 //            }
 //        }
     }
+
+    fun getServiceConfig(): ServiceConfig {
+        return serviceConfig as ServiceConfig
+    }
 }

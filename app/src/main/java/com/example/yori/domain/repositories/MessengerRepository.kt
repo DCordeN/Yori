@@ -13,6 +13,8 @@ class MessengerRepository {
     private val storage: MessengerStorage
     private val rest: MessengerRestApi
 
+    fun getServiceConfig() = storage.getServiceConfig()
+
     @Inject
     constructor(storage: MessengerStorage, rest: MessengerRestApi) {
         this.storage = storage
