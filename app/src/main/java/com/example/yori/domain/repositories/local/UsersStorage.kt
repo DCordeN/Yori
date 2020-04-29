@@ -17,12 +17,16 @@ class UsersStorage {
     constructor()
 
     fun getSearchItems(): List<SearchItem> {
+        if (searchItemsInput.isNotEmpty())
+            mapper()
+        Log.e("UsersStorage", "${searchItems.toList()}")
+        return searchItems.toList()
+    }
+
+    fun mapper() {
         for (item in searchItemsInput) {
             searchItems.add(SearchItem(item?.avatarUrl, item?.login.toString()))
         }
-        Log.e("$searchItems", "123")
-
-        return searchItems.toList()
     }
 
     fun save(searchItemsInput: List<User?>) {

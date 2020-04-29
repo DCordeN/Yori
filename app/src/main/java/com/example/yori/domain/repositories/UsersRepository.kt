@@ -17,6 +17,7 @@ class UsersRepository {
 
     fun getSearchItems() = storage.getSearchItems()
 
+
     @Inject
     constructor(storage: UsersStorage, rest: UsersRestApi) {
         this.storage = storage

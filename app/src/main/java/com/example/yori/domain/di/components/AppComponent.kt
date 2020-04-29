@@ -6,6 +6,7 @@ import com.example.yori.presentation.credentials.loading.LoadingFragment
 import com.example.yori.presentation.credentials.registration.RegistrationFragment
 import com.example.yori.presentation.main.contactlist.ContactListFragment
 import com.example.yori.presentation.main.contactlist.search.SearchListFragment
+import com.example.yori.presentation.main.contactlist.search.SearchView
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
 import com.example.yori.presentation.main.profile.ProfileActivity
 import com.example.yori.service.MessengerService
@@ -26,4 +27,6 @@ interface AppComponent {
     fun inject(target: SearchListFragment)
     fun inject(target: ProfileActivity)
     fun inject(messengerService: MessengerService)
+    fun inject(target: SearchView)
+    fun inject(target: SearchListFragment.Adapter)
 }
