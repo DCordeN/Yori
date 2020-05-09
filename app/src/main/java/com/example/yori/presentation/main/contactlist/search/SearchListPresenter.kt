@@ -45,6 +45,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
                     Log.e("username", username)
                     contactsRepository.addContact(i)
                     Log.e("sizeContacts", "${contactsRepository.getContacts()}")
+                    Log.e("contactsInStorage", "${contactsRepository.getContacts()}")
                     break
                 }
             if (e != null) {

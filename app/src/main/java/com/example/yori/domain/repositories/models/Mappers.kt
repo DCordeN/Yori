@@ -26,6 +26,24 @@ fun MessageRealm?.toBase(): Message? {
     )
 }
 
+fun SearchItem?.toRealm(): ContactsRealm? {
+    this ?: return null
+
+    return ContactsRealm().let {
+        it.avatarUrl = avatarUrl
+        it.username = username
+        it
+    }
+}
+
+fun ContactsRealm?.toBase(): SearchItem? {
+    this ?: return null
+
+    return SearchItem (
+        avatarUrl ?: "", username
+    )
+}
+
 fun Token?.toRealm(): TokenRealm? {
     this ?: return null
 
