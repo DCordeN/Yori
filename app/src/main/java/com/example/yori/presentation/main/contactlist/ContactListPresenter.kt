@@ -20,9 +20,11 @@ class ContactListPresenter : MvpPresenter<IContactListView> {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-        repository.loadContacts {
-            viewState.bindContacts(it)
-        }
+        viewState.bindContacts(repository.getContacts())
+//
+//        repository.loadContacts {
+//            viewState.bindContacts(it)
+//        }
         Log.e("contactsInStorage", "${repository.getContacts()}")
     }
 

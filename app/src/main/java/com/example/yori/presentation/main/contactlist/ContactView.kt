@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import com.example.yori.R
 import com.example.yori.base.ABaseView
 import com.example.yori.domain.repositories.models.ContactItem
+import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.item_contact.view.*
 
 class ContactView @JvmOverloads constructor(
@@ -13,7 +14,7 @@ class ContactView @JvmOverloads constructor(
 
     override fun getViewId(): Int = R.layout.item_contact
 
-    override fun bind(data: ContactItem) {
+    override fun bind(data: SearchItem) {
         tv_username.text = data.username
     }
 

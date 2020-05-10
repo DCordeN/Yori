@@ -29,6 +29,7 @@ class ContactsStorage {
     fun getContacts(): ArrayList<SearchItem> {
         if (contacts.size != 0)
             return contacts
+
         var realm = Realm.getDefaultInstance()
         var realmResults = realm.where(ContactsRealm::class.java).findAll()
         var arrayOfContactsRealm: ArrayList<ContactsRealm> = arrayListOf()
@@ -36,6 +37,7 @@ class ContactsStorage {
 
         for (obj in arrayOfContactsRealm)
                 contacts.add(obj.toBase()!!)
+
         return contacts
     }
 }

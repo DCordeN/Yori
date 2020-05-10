@@ -10,10 +10,11 @@ import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.domain.repositories.models.ContactItem
+import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.activity_contacts_list.*
 import javax.inject.Inject
 
-class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHolder>(), IContactListView {
+class ContactListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder>(), IContactListView {
 
     @Inject
     @InjectPresenter
@@ -23,7 +24,7 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
     fun providePresenter() = presenter
 
 
-    class Adapter : ABaseAdapter<ContactItem, RecyclerView.ViewHolder>() {
+    class Adapter : ABaseAdapter<SearchItem, RecyclerView.ViewHolder>() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val view = holder.itemView
@@ -45,7 +46,7 @@ class ContactListFragment : ABaseListFragment<ContactItem, RecyclerView.ViewHold
 
     override fun provideAdapter() = adapter
 
-    override fun bindContacts(contacts: List<ContactItem>) {
+    override fun bindContacts(contacts: List<SearchItem>) {
         adapter.data = contacts.toMutableList()
     }
 
