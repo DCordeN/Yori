@@ -19,7 +19,7 @@ class ContactListPresenter : MvpPresenter<IContactListView> {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
+        //repository.deleteAllContacts()
         viewState.bindContacts(repository.getContacts())
 //
 //        repository.loadContacts {

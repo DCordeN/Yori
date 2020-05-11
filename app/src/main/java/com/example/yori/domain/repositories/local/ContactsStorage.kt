@@ -40,6 +40,16 @@ class ContactsStorage {
 
         return contacts
     }
+
+    fun deleteAllContacts() {
+        contacts.clear()
+
+        Realm.getDefaultInstance().use {
+            it.executeTransaction { realm ->
+                realm.where(ContactsRealm::class.java).findAll().deleteAllFromRealm()
+            }
+        }
+    }
 }
 
 
