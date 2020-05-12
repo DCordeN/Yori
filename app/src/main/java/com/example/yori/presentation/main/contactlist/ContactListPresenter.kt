@@ -10,22 +10,24 @@ import javax.inject.Inject
 @InjectViewState
 class ContactListPresenter : MvpPresenter<IContactListView> {
 
-    private val repository: ContactsRepository
+    private val contactsRepository: ContactsRepository
+    private val userRepository: UserRepository
 
     @Inject
-    constructor(repository: ContactsRepository) {
-        this.repository = repository
+    constructor(repository: ContactsRepository, userRepository: UserRepository) {
+        this.contactsRepository = repository
+        this.userRepository = userRepository
     }
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        //repository.deleteAllContacts()
-        viewState.bindContacts(repository.getContacts())
+        //contactsRepository.deleteAllContacts()
+        viewState.bindContacts(contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
 //
-//        repository.loadContacts {
+//        contactsRepository.loadContacts {
 //            viewState.bindContacts(it)
 //        }
-        Log.e("contactsInStorage", "${repository.getContacts()}")
+        Log.e("contactsInStorage", "${contactsRepository.getContacts(userRepository.getUser()?.login.toString())}")
     }
 
 

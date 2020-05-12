@@ -1,6 +1,7 @@
 package com.example.yori.domain.repositories.local
 
 import android.provider.ContactsContract
+import android.util.Log
 import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.domain.repositories.models.realm.ContactsRealm
 import com.example.yori.domain.repositories.models.toBase
@@ -16,28 +17,31 @@ class ContactsStorage {
     @Inject
     constructor()
 
-    fun addContact(newContact: SearchItem) {
+    fun addContact(newContact: SearchItem, ownerUsername: String) {
         contacts.add(newContact)
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
-                newContact.toRealm()?.let { realm.insertOrUpdate(it) }
+                newContact.toRealm(ownerUsername)?.let { realm.insert(it) }
             }
         }
     }
 
-    fun getContacts(): ArrayList<SearchItem> {
+    fun getContacts(ownerUsername: String): ArrayList<SearchItem> {
         if (contacts.size != 0)
             return contacts
 
+
         var realm = Realm.getDefaultInstance()
-        var realmResults = realm.where(ContactsRealm::class.java).findAll()
+        var realmResults = realm.where(ContactsRealm::class.java)
+            .equalTo("ownerUsername", ownerUsername)
+            .findAll()
         var arrayOfContactsRealm: ArrayList<ContactsRealm> = arrayListOf()
         arrayOfContactsRealm.addAll(realm.copyFromRealm(realmResults))
 
         for (obj in arrayOfContactsRealm)
-                contacts.add(obj.toBase()!!)
-
+            contacts.add(obj.toBase()!!)
+        //Log.e(arrayOfContactsRealm[0].ownerUsername, ownerUsername)
         return contacts
     }
 

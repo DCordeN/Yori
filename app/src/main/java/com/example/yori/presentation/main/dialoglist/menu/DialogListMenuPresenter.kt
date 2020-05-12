@@ -1,5 +1,6 @@
 package com.example.yori.presentation.main.dialoglist.menu
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.domain.repositories.UserRepository
@@ -21,6 +22,7 @@ class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
     }
 
     fun getUsername(): String? {
+        Log.e(repository.getUser()?.login, "123")
         return repository.getUser()?.login
     }
 

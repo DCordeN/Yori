@@ -38,7 +38,7 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
 
         currentFragment = AuthorizationFragment()
 
-        if (savedInstanceState == null)
+        if (savedInstanceState != null)
             showAuth()
 
         if (intent.getBooleanExtra(ARG_DROP_CREDENTIALS, false)) {

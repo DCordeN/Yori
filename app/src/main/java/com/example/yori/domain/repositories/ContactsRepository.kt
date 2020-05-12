@@ -16,12 +16,12 @@ class ContactsRepository {
         this.storage = storage
     }
 
-    fun getContacts() = storage.getContacts()
+    fun getContacts(ownerUsername: String) = storage.getContacts(ownerUsername)
 
     fun deleteAllContacts() = storage.deleteAllContacts()
 
-    fun addContact(contact: SearchItem) {
-        storage.addContact(contact)
+    fun addContact(contact: SearchItem, ownerUsername: String) {
+        storage.addContact(contact, ownerUsername)
     }
 
 }

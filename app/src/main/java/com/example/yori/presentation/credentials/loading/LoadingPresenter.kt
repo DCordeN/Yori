@@ -6,6 +6,7 @@ import android.view.animation.LinearInterpolator
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.domain.repositories.UserRepository
+import com.example.yori.domain.repositories.local.UserStorage
 import com.example.yori.presentation.main.dialoglist.DialogListActivity
 import java.lang.Thread.sleep
 import javax.inject.Inject
@@ -23,7 +24,7 @@ class LoadingPresenter: MvpPresenter<ILoadingView> {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-
+        //UserStorage().dropCredentials()
         loadStaticResources()
     }
 
@@ -31,12 +32,12 @@ class LoadingPresenter: MvpPresenter<ILoadingView> {
         viewState.onRotate()
 
         Handler().postDelayed( {
-//            viewState.onLoadingComplete()
-//            val user = userRepository.getUser()
-//            if (user != null) {
-//               DialogListActivity.show()
-//               return@postDelayed
-//            }
+            viewState.onLoadingComplete()
+            val user = userRepository.getUser()
+            if (user != null) {
+               DialogListActivity.show()
+               return@postDelayed
+            }
 
             viewState.onLoadingComplete()
         }, 2000)

@@ -43,9 +43,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
                 if (username == i.username) {
                     Log.e("$i", "123")
                     Log.e("username", username)
-                    contactsRepository.addContact(i)
-                    Log.e("sizeContacts", "${contactsRepository.getContacts()}")
-                    Log.e("contactsInStorage", "${contactsRepository.getContacts()}")
+                    contactsRepository.addContact(i, userRepository.getUser()?.login.toString())
                     break
                 }
             if (e != null) {

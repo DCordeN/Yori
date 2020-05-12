@@ -26,12 +26,13 @@ fun MessageRealm?.toBase(): Message? {
     )
 }
 
-fun SearchItem?.toRealm(): ContactsRealm? {
+fun SearchItem?.toRealm(ownerUsername: String): ContactsRealm? {
     this ?: return null
 
     return ContactsRealm().let {
         it.avatarUrl = avatarUrl
         it.username = username
+        it.ownerUsername = ownerUsername
         it
     }
 }

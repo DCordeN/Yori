@@ -23,7 +23,6 @@ class AuthorizationPresenter : MvpPresenter<IAuthorizationView> {
         userRepository.login(SubRX {_, e ->
             if (e != null) {
                 e.printStackTrace()
-                //Log.e("${userRepository.getUser()?.token}", "ert")
                 if(e.localizedMessage == "HTTP 400 ")
                     viewState.onError(e.localizedMessage)
                 return@SubRX
