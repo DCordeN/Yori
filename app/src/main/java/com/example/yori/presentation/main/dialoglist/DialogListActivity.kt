@@ -6,12 +6,14 @@ import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
-import kotlinx.android.synthetic.main.activity_dialogs.*
+import kotlinx.android.synthetic.main.activity_dialogs_list.*
 
 class DialogListActivity : ABaseActivity() {
 
     private var menuFragment: DialogListMenuFragment =
         DialogListMenuFragment()
+    private var dialogsListFragment: DialogListFragment =
+        DialogListFragment()
 
     companion object {
         fun show() {
@@ -25,10 +27,11 @@ class DialogListActivity : ABaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dialogs)
-        supportActionBar?.hide();
+        setContentView(R.layout.activity_dialogs_list)
+        supportActionBar?.hide()
 
-        replace(R.id.fl_dialog_list, menuFragment, null, null)
+        add(R.id.fl_dialogs_list, dialogsListFragment, null, null)
+        replace(R.id.fl_menu, menuFragment, null, null)
         supportFragmentManager.beginTransaction()
             .hide(menuFragment)
             .commit()
@@ -40,7 +43,7 @@ class DialogListActivity : ABaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        iv_hamburger.setOnClickListener{
+        iv_hamburger.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .show(menuFragment)
                 .commit()

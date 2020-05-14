@@ -11,7 +11,7 @@ import com.example.yori.base.ABaseFragment
 import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.service.MessengerService
 import kotlinx.android.synthetic.main.fragment_menu_dialogs.*
-import kotlinx.android.synthetic.main.activity_dialogs.*
+import kotlinx.android.synthetic.main.activity_dialogs_list.*
 import javax.inject.Inject
 
 class DialogListMenuFragment : ABaseFragment(),

@@ -2,7 +2,6 @@ package com.example.yori.presentation.main
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
@@ -21,7 +20,7 @@ class MainActivity : ABaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dialogs)
+        setContentView(R.layout.activity_dialogs_list)
 
         if (savedInstanceState != null)
             return
