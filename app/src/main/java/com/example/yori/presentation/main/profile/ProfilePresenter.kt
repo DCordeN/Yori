@@ -5,6 +5,7 @@ import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.local.UserStorage
 import com.example.yori.presentation.credentials.CredentialsActivity
+import com.example.yori.presentation.main.dialog.DialogActivity
 import javax.inject.Inject
 
 class ProfilePresenter : MvpPresenter<IProfileRouter> {
@@ -28,6 +29,10 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
             }
             CredentialsActivity.show()
         }, repository.getUser()?.token)
+    }
+
+    fun showDialog(username: String) {
+        DialogActivity.show(username)
     }
 
 

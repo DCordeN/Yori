@@ -1,6 +1,8 @@
 package com.example.yori.presentation.credentials.registration
 
+import android.util.LayoutDirection
 import android.util.Log
+import android.widget.FrameLayout
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
@@ -34,6 +36,6 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
 
             DialogListActivity.show()
         }, login, pass)
-
+    
     }
 }

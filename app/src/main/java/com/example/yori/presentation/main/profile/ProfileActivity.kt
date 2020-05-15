@@ -79,6 +79,11 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
             btn_change_password.visibility = View.GONE
             btn_exit.visibility = View.GONE
         }
+
+        if (iv_letter != null)
+            iv_letter.setOnClickListener {
+                presenter.showDialog(tv_username.text.toString())
+            }
     }
 
 }

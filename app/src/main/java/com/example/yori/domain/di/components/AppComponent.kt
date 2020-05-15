@@ -7,6 +7,7 @@ import com.example.yori.presentation.credentials.registration.RegistrationFragme
 import com.example.yori.presentation.main.contactlist.ContactListFragment
 import com.example.yori.presentation.main.contactlist.search.SearchListFragment
 import com.example.yori.presentation.main.contactlist.search.SearchView
+import com.example.yori.presentation.main.dialog.DialogFragment
 import com.example.yori.presentation.main.dialoglist.DialogListFragment
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
 import com.example.yori.presentation.main.profile.ProfileActivity
@@ -31,4 +32,5 @@ interface AppComponent {
     fun inject(target: SearchView)
     fun inject(target: SearchListFragment.Adapter)
     fun inject(target: DialogListFragment)
+    fun inject(target: DialogFragment)
 }
