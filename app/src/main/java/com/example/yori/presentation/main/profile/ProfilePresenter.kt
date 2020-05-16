@@ -31,8 +31,8 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
         }, repository.getUser()?.token)
     }
 
-    fun showDialog(username: String) {
-        DialogActivity.show(username)
+    fun showDialog(username: String, id: Int) {
+        DialogActivity.show(username, id)
     }
 
 

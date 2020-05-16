@@ -25,7 +25,7 @@ class UsersStorage {
 
     fun mapper() {
         for (item in searchItemsInput) {
-            searchItems.add(SearchItem(item?.avatarUrl, item?.login.toString()))
+            searchItems.add(SearchItem(item?.avatarUrl, item?.id, item?.login.toString()))
         }
     }
 

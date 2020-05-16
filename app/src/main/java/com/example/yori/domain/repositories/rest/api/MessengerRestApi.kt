@@ -3,8 +3,7 @@ package com.example.yori.domain.repositories.rest.api
 import com.example.yori.base.ABaseRestApi
 import com.example.yori.base.IRestClient
 import com.example.yori.domain.di.modules.NetModule
-import com.example.yori.domain.repositories.models.rest.Message
-import com.example.yori.domain.repositories.models.rest.ServiceConfig
+import com.example.yori.domain.repositories.models.rest.MessengerMessage
 import com.example.yori.domain.repositories.rest.service.IMessengerRestApiService
 import javax.inject.Inject
 import javax.inject.Named
@@ -23,6 +22,6 @@ class MessengerRestApi : ABaseRestApi<IMessengerRestApiService> {
     fun online(accessToken: String)
             = service.online(accessToken)
 
-    fun send(accessToken: String, message: Message)
+    fun send(accessToken: String, message: MessengerMessage)
             = service.send(accessToken, message)
 }

@@ -1,6 +1,6 @@
 package com.example.yori.domain.repositories.models.rest
 
-data class Message (
+data class MessengerMessage (
     val date: String?,
     val delivered: Boolean?,
     val from: Int?,

@@ -17,7 +17,7 @@ class DialogFragment : ABaseListFragment<MessageItem, RecyclerView.ViewHolder>()
 
     @Inject
     @InjectPresenter
-    lateinit var presenter: DialogPresenter
+    lateinit var presenter: DialogFragmentPresenter
 
     @ProvidePresenter
     fun providePresenter() = presenter

@@ -3,7 +3,6 @@ package com.example.yori.domain.repositories.rest.api
 import com.example.yori.base.ABaseRestApi
 import com.example.yori.base.IRestClient
 import com.example.yori.domain.di.modules.NetModule
-import com.example.yori.domain.repositories.models.rest.Message
 import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.rest.service.IUserRestApiService
 import javax.inject.Inject

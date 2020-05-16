@@ -3,7 +3,7 @@ package com.example.yori.domain.repositories.models
 import com.example.yori.domain.repositories.models.realm.*
 import com.example.yori.domain.repositories.models.rest.*
 
-fun Message?.toRealm(): MessageRealm? {
+fun MessengerMessage?.toRealm(): MessageRealm? {
     this ?: return null
 
     return MessageRealm().let {
@@ -17,10 +17,10 @@ fun Message?.toRealm(): MessageRealm? {
     }
 }
 
-fun MessageRealm?.toBase(): Message? {
+fun MessageRealm?.toBase(): MessengerMessage? {
     this ?: return null
 
-    return Message (
+    return MessengerMessage (
         date ?: "", delivered, from, id,
         message ?: "", to
     )
@@ -41,7 +41,7 @@ fun ContactsRealm?.toBase(): SearchItem? {
     this ?: return null
 
     return SearchItem (
-        avatarUrl ?: "", username
+        avatarUrl ?: "", id = null, username = username
     )
 }
 

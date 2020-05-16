@@ -40,11 +40,12 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
             }
         }
 
-        fun show(username: String) {
+        fun show(username: String, id: Int) {
             App.appContext.let {
                 it.startActivity(Intent(it, ProfileActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     putExtra("username", username)
+                    putExtra("id", id)
                 })
             }
         }
@@ -80,9 +81,11 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
             btn_exit.visibility = View.GONE
         }
 
+        var id = intent.getIntExtra("id", 0)
+
         if (iv_letter != null)
             iv_letter.setOnClickListener {
-                presenter.showDialog(tv_username.text.toString())
+                presenter.showDialog(tv_username.text.toString(), id)
             }
     }
 

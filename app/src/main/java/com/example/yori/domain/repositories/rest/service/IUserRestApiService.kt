@@ -1,6 +1,5 @@
 package com.example.yori.domain.repositories.rest.service
 
-import com.example.yori.domain.repositories.models.rest.Message
 import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.models.rest.Token
 import io.reactivex.Observable

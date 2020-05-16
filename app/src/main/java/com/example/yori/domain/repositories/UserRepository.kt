@@ -32,7 +32,7 @@ class UserRepository {
     fun logout(observer: SubRX<User>, token: Token?) {
         if (token != null) {
             rest.logout(token.access)
-                .doOnNext { storage.dropCredentials()}
+                .doOnNext { storage.dropCredentials() }
                 .standardSubscribeIO(observer)
         }
     }

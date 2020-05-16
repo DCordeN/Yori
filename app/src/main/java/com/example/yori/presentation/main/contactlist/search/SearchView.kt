@@ -26,7 +26,7 @@ class SearchView @JvmOverloads constructor(
         tv_username.text = data.username
         tv_username.setOnClickListener {
             var username = tv_username.text.toString()
-            ProfileActivity.show(username)
+            data.id?.let { it1 -> ProfileActivity.show(username, it1) }
         }
 
     }
