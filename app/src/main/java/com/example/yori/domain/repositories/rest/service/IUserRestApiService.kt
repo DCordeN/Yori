@@ -16,6 +16,7 @@ interface IUserRestApiService {
     fun logout(@Header("access_token") accessToken: String): Observable<User>
 
     @POST("/user/v1/refresh")
+    @Headers("Content-Type: application/json")
     fun refreshToken(@Header("refresh_token") refreshToken: String): Call<Token>
 
     @PUT("/user/v1/registration")

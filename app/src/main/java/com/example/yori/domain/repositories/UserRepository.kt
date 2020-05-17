@@ -42,7 +42,6 @@ class UserRepository {
         val response = rest.refreshToken(token.refresh).execute()
         response.body()?.let {
             storage.save(it)
-            it.access
             return it
         }
 
