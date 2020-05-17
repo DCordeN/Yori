@@ -11,7 +11,7 @@ import javax.inject.Named
 class MessengerRestApi : ABaseRestApi<IMessengerRestApiService> {
 
     @Inject
-    constructor(@Named(NetModule.NAME_AUTH_REST_CLIENT) client: IRestClient) : super(client)
+    constructor(@Named(NetModule.NAME_MAIN_REST_CLIENT) client: IRestClient) : super(client)
 
     fun messages(accessToken: String)
             = service.messages(accessToken)

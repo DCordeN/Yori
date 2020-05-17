@@ -40,7 +40,7 @@ class DialogListMenuFragment : ABaseFragment(),
             presenter.showProfile()
         }
 
-        context?.let { MessengerService.start(it, "t") }
+        //context?.let { MessengerService.start(it, "t") }
     }
 
     override fun getViewId(): Int {

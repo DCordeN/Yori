@@ -36,6 +36,6 @@ class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
 
     fun temp() {
         /*repository.getUser()?.token?.let {
-            repositorytemp.online(it) }*/
+            messengerRepository.online(it) }*/
     }
 }

@@ -2,11 +2,15 @@ package com.example.yori.presentation.main.dialoglist
 
 import android.content.Intent
 import android.os.Bundle
+import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
+import com.example.yori.service.MessengerService
 import kotlinx.android.synthetic.main.activity_dialogs_list.*
+import javax.inject.Inject
 
 class DialogListActivity : ABaseActivity() {
 
@@ -14,6 +18,7 @@ class DialogListActivity : ABaseActivity() {
         DialogListMenuFragment()
     private var dialogsListFragment: DialogListFragment =
         DialogListFragment()
+
 
     companion object {
         fun show() {
@@ -26,6 +31,7 @@ class DialogListActivity : ABaseActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialogs_list)
         supportActionBar?.hide()
@@ -39,6 +45,8 @@ class DialogListActivity : ABaseActivity() {
 
         if (savedInstanceState != null)
             return
+        MessengerService.start(App.appContext, "t")
+
     }
 
     override fun onResume() {

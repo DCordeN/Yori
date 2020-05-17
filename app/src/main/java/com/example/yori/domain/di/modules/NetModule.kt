@@ -1,7 +1,9 @@
 package com.example.yori.domain.di.modules
 
 import com.example.yori.base.IRestClient
+import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
+import com.example.yori.domain.repositories.UsersRepository
 import com.example.yori.domain.repositories.rest.RestClient
 import com.example.yori.domain.repositories.rest.TokenInterceptor
 import com.google.gson.Gson
@@ -24,7 +26,9 @@ class NetModule {
         private const val CONNECTION_TIMEOUT = 20000L
 
         const val NAME_AUTH_REST_CLIENT = "NAME_AUTH_REST_CLIENT"
+        const val NAME_MAIN_REST_CLIENT = "NAME_MAIN_REST_CLIENT"
         const val NAME_CLIENT_WITHOUT_TOKEN_INTERCEPTOR = "NAME_CLIENT_WITHOUT_TOKEN_INTERCEPTOR"
+        const val NAME_CLIENT_WITH_TOKEN_INTERCEPTOR = "NAME_CLIENT_WITH_TOKEN_INTERCEPTOR"
     }
 
 
@@ -50,6 +54,19 @@ class NetModule {
         addInterceptor(logger)
     }.build()
 
+    @Provides
+    @Singleton
+    @Named(NAME_CLIENT_WITH_TOKEN_INTERCEPTOR)
+    fun provideOkHttpClientWithTokenInterceptor(logger: Interceptor, token: TokenInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
+            .readTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
+            .writeTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
+            .addInterceptor(logger)
+            .addInterceptor(token)
+            .build()
+    }
+
 
     @Provides
     @Singleton
@@ -60,5 +77,11 @@ class NetModule {
     @Singleton
     @Named(NAME_AUTH_REST_CLIENT)
     fun provideAuthRestClient(@Named(NAME_CLIENT_WITHOUT_TOKEN_INTERCEPTOR) client: OkHttpClient, gson: Gson)
+            = RestClient(client, gson, DOMAIN_MAIN_API) as IRestClient
+
+    @Provides
+    @Singleton
+    @Named(NAME_MAIN_REST_CLIENT)
+    fun provideMainRestClient(@Named(NAME_CLIENT_WITH_TOKEN_INTERCEPTOR) client: OkHttpClient, gson: Gson)
             = RestClient(client, gson, DOMAIN_MAIN_API) as IRestClient
 }

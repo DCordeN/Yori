@@ -68,7 +68,6 @@ class NetworkUser (
             onAuth(message)
             return
         }
-
     }
 
     private fun send(message: String, call: ((Boolean) -> Unit)? = null) {

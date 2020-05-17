@@ -1,6 +1,7 @@
 package com.example.yori.domain.repositories
 
 import android.os.SystemClock
+import android.util.Log
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
@@ -41,14 +42,14 @@ class UserRepository {
         val response = rest.refreshToken(token.refresh).execute()
         response.body()?.let {
             storage.save(it)
+            it.access
             return it
         }
 
-        if(onRetry(response.code())) {
+        if (onRetry(response.code())) {
             SystemClock.sleep(500)
             return refreshToken(token)
         }
-
         return null
     }
 

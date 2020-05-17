@@ -9,6 +9,7 @@ import com.example.yori.presentation.main.contactlist.search.SearchListFragment
 import com.example.yori.presentation.main.contactlist.search.SearchView
 import com.example.yori.presentation.main.dialog.DialogActivity
 import com.example.yori.presentation.main.dialog.DialogFragment
+import com.example.yori.presentation.main.dialoglist.DialogListActivity
 import com.example.yori.presentation.main.dialoglist.DialogListFragment
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
 import com.example.yori.presentation.main.profile.ProfileActivity
@@ -35,4 +36,5 @@ interface AppComponent {
     fun inject(target: DialogListFragment)
     fun inject(target: DialogFragment)
     fun inject(target: DialogActivity)
+    fun inject(target: DialogListActivity)
 }

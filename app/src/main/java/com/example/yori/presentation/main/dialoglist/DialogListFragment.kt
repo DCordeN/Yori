@@ -36,7 +36,8 @@ class DialogListFragment : ABaseListFragment<DialogItem, RecyclerView.ViewHolder
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val view = holder.itemView
             if (view is IDialogView)
-                view.bind(data[position])        }
+                view.bind(data[position])
+        }
 
     }
 
