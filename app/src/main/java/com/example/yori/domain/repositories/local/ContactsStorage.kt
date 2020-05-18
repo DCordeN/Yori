@@ -41,7 +41,7 @@ class ContactsStorage {
 
         for (obj in arrayOfContactsRealm)
             contacts.add(obj.toBase()!!)
-        //Log.e(arrayOfContactsRealm[0].ownerUsername, ownerUsername)
+        //Log.e(arrayOfContactsRealm[11].ownerUsername, ownerUsername)
         return contacts
     }
 

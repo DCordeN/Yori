@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.App
@@ -22,14 +23,18 @@ class SearchView @JvmOverloads constructor(
     override fun getViewId(): Int = R.layout.item_search
 
     override fun bind(data: SearchItem) {
-
         tv_username.text = data.username
         tv_username.setOnClickListener {
             var username = tv_username.text.toString()
             data.id?.let { it1 -> ProfileActivity.show(username, it1) }
         }
-
     }
+
+    override fun hideAddingToContactsButton() {
+        iv_add_contact.visibility = View.GONE
+    }
+
+
 
 
 }

@@ -8,6 +8,7 @@ import com.example.yori.domain.repositories.ContactsRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.UsersRepository
 import com.example.yori.domain.repositories.local.ContactsStorage
+import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.presentation.main.profile.ProfileActivity
 import kotlinx.android.synthetic.main.item_search.view.*
 import javax.inject.Inject
@@ -30,12 +31,16 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
 
 
     fun loadUsers() {
+        Log.e(userRepository.getUser()?.token?.refresh.toString(), "loadUsers")
         usersRepository.users(SubRX { _, e ->
             viewState.bindSearchItems(usersRepository.getSearchItems())
             if (e != null) {
                 e.printStackTrace()
                 return@SubRX
             }
+            for (i in contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
+                if (!usersRepository.getSearchItems().contains(i))
+                    Log.e("catch", "catch")
         }, userRepository.getUser()?.token)
     }
 
@@ -43,8 +48,6 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
         usersRepository.users(SubRX { _, e ->
             for (i in usersRepository.getSearchItems())
                 if (username == i.username) {
-                    Log.e("$i", "123")
-                    Log.e("username", username)
                     contactsRepository.addContact(i, userRepository.getUser()?.login.toString())
                     break
                 }
@@ -53,6 +56,15 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
                 return@SubRX
             }
         }, userRepository.getUser()?.token)
+    }
+
+    fun checkItInContacts(data: SearchItem): Boolean {
+        for (contact in contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
+            if (contact.username == data.username)
+                return true
+
+        return false
+
     }
 
 

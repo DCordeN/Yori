@@ -38,9 +38,10 @@ class UserRepository {
         }
     }
 
-    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
+    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it != HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
         val response = rest.refreshToken(token.refresh).execute()
         response.body()?.let {
+            it.refresh = token.refresh
             storage.save(it)
             return it
         }

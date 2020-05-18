@@ -28,6 +28,7 @@ class MessengerService : Service() {
             val intent = Intent(context, MessengerService::class.java)
             intent.putExtra(ARG_TITLE, title)
             ContextCompat.startForegroundService(context, intent)
+
         }
     }
 
@@ -46,6 +47,8 @@ class MessengerService : Service() {
     override fun onCreate() {
         super.onCreate()
         App.appComponent.inject(this)
+        Log.e(repository.getUser().toString(), "service")
+
 
         repositorytemp.online(SubRX { _, e ->
             if (e != null) {
@@ -71,8 +74,12 @@ class MessengerService : Service() {
                 start()
             }
 
-        }, repository.getUser()?.token!!)
 
+        }, repository.getUser()?.token!!)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 

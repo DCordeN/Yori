@@ -33,8 +33,8 @@ class LoadingPresenter: MvpPresenter<ILoadingView> {
 
         Handler().postDelayed( {
             viewState.onLoadingComplete()
-            val user = userRepository.getUser()
-            if (user != null) {
+            val token = userRepository.getUser()?.token
+            if (token != null) {
                DialogListActivity.show()
                return@postDelayed
             }

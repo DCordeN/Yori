@@ -31,7 +31,7 @@ class TokenInterceptor: Interceptor {
 
     override fun intercept(inChain: Interceptor.Chain?): Response {
 
-        Log.e("intercept", "123")
+        Log.e("intercept", userRepository.getUser()?.token?.access.toString())
         val chain = inChain ?: throw IllegalArgumentException("Chain is NULL")
 
         var token = userRepository.getUser()?.token

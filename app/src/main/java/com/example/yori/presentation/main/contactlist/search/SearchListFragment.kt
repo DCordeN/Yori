@@ -1,8 +1,6 @@
 package com.example.yori.presentation.main.contactlist.search
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +10,8 @@ import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
-import com.example.yori.domain.di.components.DaggerAppComponent
-import com.example.yori.domain.repositories.ContactsRepository
-import com.example.yori.domain.repositories.UserRepository
-import com.example.yori.domain.repositories.UsersRepository
 import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.activity_contacts_list.*
-import kotlinx.android.synthetic.main.fragment_search_list.*
-import kotlinx.android.synthetic.main.item_search.*
-import kotlinx.android.synthetic.main.item_search.view.*
 import javax.inject.Inject
 
 class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder>(), ISearchListView {
@@ -36,18 +27,21 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
     class Adapter : ABaseAdapter<SearchItem, RecyclerView.ViewHolder>() {
 
         @Inject
-        lateinit var presenter: SearchListPresenter
+        lateinit var searchListPresenter: SearchListPresenter
 
         @ProvidePresenter
-        fun providePresenter() = presenter
+        fun providePresenter() = searchListPresenter
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val view = holder.itemView
 
-            if (view is ISearchView)
+            if (view is ISearchView) {
                 view.bind(data[position])
+                if (searchListPresenter.checkItInContacts(data[position]))
+                    view.hideAddingToContactsButton()
+            }
             view.setOnClickListener {
-                presenter.saveToContacts(data[position].username)
+                searchListPresenter.saveToContacts(data[position].username)
             }
         }
 
@@ -62,6 +56,7 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
 
             return object : RecyclerView.ViewHolder(view) { }
         }
+
 
         fun inject() {
             App.appComponent.inject(this)
@@ -81,6 +76,8 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
     override fun bindSearchItems(searchItems: List<SearchItem>) {
         adapter.data = searchItems.toMutableList()
     }
+
+
 
     override fun inject() {
         App.appComponent.inject(this)

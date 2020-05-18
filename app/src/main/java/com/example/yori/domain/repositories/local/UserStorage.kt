@@ -14,7 +14,6 @@ class UserStorage {
 
     private var user: User? = null
 
-
     @Inject
     constructor()
 
@@ -39,13 +38,16 @@ class UserStorage {
         }
     }
 
-    fun save(token: Token){
+    fun save(token: Token?){
         user?.token = token
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
-                it.where(UserRealm::class.java).findFirst()?.let {
-                    it.token = token.toRealm()
+                var tokenRealm = it.createObject(TokenRealm::class.java)
+                tokenRealm.access = token?.access
+                tokenRealm.refresh = token?.refresh
+                it.where(UserRealm::class.java).equalTo("login", user?.login).findFirst()?.let {
+                    it.token = tokenRealm
                     realm.copyToRealmOrUpdate(it)
                 }
             }
