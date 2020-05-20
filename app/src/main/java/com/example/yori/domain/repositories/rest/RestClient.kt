@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RestClient(private val client: OkHttpClient, gson: Gson, baseUrl: String): IRestClient {
+class RestClient(private val client: OkHttpClient, gson: Gson, baseUrl: String) : IRestClient {
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)

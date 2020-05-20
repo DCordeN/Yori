@@ -7,10 +7,7 @@ import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.ContactsRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.UsersRepository
-import com.example.yori.domain.repositories.local.ContactsStorage
 import com.example.yori.domain.repositories.models.SearchItem
-import com.example.yori.presentation.main.profile.ProfileActivity
-import kotlinx.android.synthetic.main.item_search.view.*
 import javax.inject.Inject
 
 @InjectViewState
@@ -32,7 +29,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
 
     fun loadUsers() {
         Log.e(userRepository.getUser()?.token?.refresh.toString(), "loadUsers")
-        usersRepository.users(SubRX { _, e ->
+        usersRepository.getUsers(SubRX { _, e ->
             viewState.bindSearchItems(usersRepository.getSearchItems())
             if (e != null) {
                 e.printStackTrace()
@@ -45,7 +42,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
     }
 
     fun saveToContacts(username: String) {
-        usersRepository.users(SubRX { _, e ->
+        usersRepository.getUsers(SubRX { _, e ->
             for (i in usersRepository.getSearchItems())
                 if (username == i.username) {
                     contactsRepository.addContact(i, userRepository.getUser()?.login.toString())

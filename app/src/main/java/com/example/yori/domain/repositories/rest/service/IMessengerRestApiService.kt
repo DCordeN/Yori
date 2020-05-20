@@ -17,7 +17,7 @@ interface IMessengerRestApiService {
     @GET("/messenger/v1/new_messages")
     fun newMessages(@Header("access_token") accessToken: String): Call<MessengerMessage>
 
-    @GET("/messenger/v1/online")
+    @GET("/messenger/v1/getServiceConfig")
     fun online(@Header("access_token") accessToken: String): Observable<ServiceConfig>
 
     @POST("/messenger/v1/send")

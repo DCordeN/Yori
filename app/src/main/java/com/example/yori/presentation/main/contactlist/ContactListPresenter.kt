@@ -27,7 +27,7 @@ class ContactListPresenter : MvpPresenter<IContactListView> {
 //        contactsRepository.loadContacts {
 //            viewState.bindContacts(it)
 //        }
-        Log.e("contactsInStorage", "${contactsRepository.getContacts(userRepository.getUser()?.login.toString())}")
+
     }
 
 

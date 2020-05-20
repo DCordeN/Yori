@@ -38,7 +38,7 @@ class UserStorage {
         }
     }
 
-    fun save(token: Token?){
+    fun save(token: Token?) {
         user?.token = token
 
         Realm.getDefaultInstance().use {

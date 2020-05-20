@@ -15,6 +15,8 @@ abstract class ABaseFragment : MvpAppCompatFragment() {
     }
 
     abstract fun inject()
+    abstract fun getViewId() : Int
+    abstract fun getContainer() : ViewGroup?
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,12 +26,8 @@ abstract class ABaseFragment : MvpAppCompatFragment() {
         return inflater.inflate(getViewId(), getContainer(), false)
     }
 
-    abstract fun getViewId() : Int
-    abstract fun getContainer() : ViewGroup?
-
     fun visibility(view: View?, value: Boolean){
         view?.visibility = if (value) View.VISIBLE else View.GONE
     }
-
 
 }

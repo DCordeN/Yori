@@ -19,7 +19,6 @@ class UsersStorage {
     fun getSearchItems(): List<SearchItem> {
         if (searchItemsInput.isNotEmpty())
             mapper()
-        Log.e("UsersStorage", "${searchItems.toList()}")
         return searchItems.toList()
     }
 

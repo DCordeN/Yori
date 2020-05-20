@@ -7,7 +7,7 @@ import com.example.yori.domain.di.components.DaggerAppComponent
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-class App: Application() {
+class App : Application() {
 
     companion object {
         lateinit var appContext: Context

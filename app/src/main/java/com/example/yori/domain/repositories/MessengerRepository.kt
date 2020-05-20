@@ -24,7 +24,7 @@ class MessengerRepository {
         this.rest = rest
     }
 
-    fun online(observer: SubRX<ServiceConfig>, token: Token) {
+    fun getServiceConfig(observer: SubRX<ServiceConfig>, token: Token) {
         rest.online(token.access)
             .doOnNext { storage.saveConfig(it) }
             .standardSubscribeIO(observer)

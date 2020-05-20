@@ -14,7 +14,7 @@ import java.net.HttpURLConnection
 import java.util.concurrent.locks.ReentrantLock
 import javax.inject.Inject
 
-class TokenInterceptor: Interceptor {
+class TokenInterceptor : Interceptor {
 
     companion object {
         const val HEADER_AUTHORIZATION = "access_token"
@@ -31,7 +31,6 @@ class TokenInterceptor: Interceptor {
 
     override fun intercept(inChain: Interceptor.Chain?): Response {
 
-        Log.e("intercept", userRepository.getUser()?.token?.access.toString())
         val chain = inChain ?: throw IllegalArgumentException("Chain is NULL")
 
         var token = userRepository.getUser()?.token

@@ -63,7 +63,6 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
 
         var username = intent.getStringExtra("username")
         var id = intent.getIntExtra("id", 0)
-        Log.e(id.toString(), username)
         tv_username.text = username
 
         btn_send.setOnClickListener {
@@ -72,7 +71,6 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
                 presenter.sendMessage(id, textMessage.toString())
                 textMessage.clear()
             }
-            Log.e(textMessage.toString(), "123")
         }
     }
 }

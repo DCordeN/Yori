@@ -24,7 +24,7 @@ class UsersRepository {
         this.rest = rest
     }
 
-    fun users(observer: SubRX<List<User>>, token: Token?) {
+    fun getUsers(observer: SubRX<List<User>>, token: Token?) {
         if (token != null) {
             rest.users(accessToken = token.access)
                 .doOnNext { storage.save(it) }

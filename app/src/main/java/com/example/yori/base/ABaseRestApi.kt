@@ -2,12 +2,12 @@ package com.example.yori.base
 
 import java.lang.reflect.ParameterizedType
 
-abstract class ABaseRestApi<S>: IRestApi {
+abstract class ABaseRestApi<S> : IRestApi {
 
     private val client: IRestClient
     val service: S
 
-    constructor(client: IRestClient){
+    constructor(client: IRestClient) {
         val type = javaClass.genericSuperclass as ParameterizedType
         val clazz = type.actualTypeArguments[0] as Class<S>
 

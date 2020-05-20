@@ -11,11 +11,7 @@ import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.messenger.NetworkUser
-import eac.network.PackageReceiver
-import eac.network.PackageSender
 import javax.inject.Inject
-import eac.network.Tcp
-import java.util.concurrent.atomic.AtomicBoolean
 
 class MessengerService : Service() {
 
@@ -33,9 +29,9 @@ class MessengerService : Service() {
     }
 
     @Inject
-    lateinit var repository: UserRepository
+    lateinit var userRepository: UserRepository
     @Inject
-    lateinit var repositorytemp: MessengerRepository
+    lateinit var messengerRepository: MessengerRepository
 
     var networkUser: NetworkUser? = null
 
@@ -47,27 +43,27 @@ class MessengerService : Service() {
     override fun onCreate() {
         super.onCreate()
         App.appComponent.inject(this)
-        Log.e(repository.getUser().toString(), "service")
+        Log.e(userRepository.getUser().toString(), "service")
 
 
-        repositorytemp.online(SubRX { _, e ->
+        messengerRepository.getServiceConfig(SubRX { _, e ->
             if (e != null) {
                 e.printStackTrace()
                 return@SubRX
             }
             val tokenProvider: () -> String = {
-                repository.getUser()?.token?.access ?: throw IllegalStateException("Undefined token")
+                userRepository.getUser()?.token?.access ?: throw IllegalStateException("Undefined token")
             }
 
             val onErrorAuthListener: () -> String = {
-                val token = repository.getUser()?.token ?: throw IllegalStateException("Token undefined")
-                repository.refreshToken(token)?.access ?: throw IllegalStateException("Token undefined")
+                val token = userRepository.getUser()?.token ?: throw IllegalStateException("Token undefined")
+                userRepository.refreshToken(token)?.access ?: throw IllegalStateException("Token undefined")
             }
 
             networkUser = NetworkUser(
                 "212.75.210.227",
-                repositorytemp.getServiceConfig().port,
-                repositorytemp.getServiceConfig().ssl,
+                messengerRepository.getServiceConfig().port,
+                messengerRepository.getServiceConfig().ssl,
                 tokenProvider,
                 onErrorAuthListener
             ).apply {
@@ -75,11 +71,7 @@ class MessengerService : Service() {
             }
 
 
-        }, repository.getUser()?.token!!)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+        }, userRepository.getUser()?.token!!)
     }
 
 

@@ -39,8 +39,6 @@ class DialogListMenuFragment : ABaseFragment(),
         tv_profile.setOnClickListener {
             presenter.showProfile()
         }
-
-        //context?.let { MessengerService.start(it, "t") }
     }
 
     override fun getViewId(): Int {

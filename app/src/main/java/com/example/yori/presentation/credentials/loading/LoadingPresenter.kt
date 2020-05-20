@@ -12,7 +12,7 @@ import java.lang.Thread.sleep
 import javax.inject.Inject
 
 @InjectViewState
-class LoadingPresenter: MvpPresenter<ILoadingView> {
+class LoadingPresenter : MvpPresenter<ILoadingView> {
 
     private val userRepository: UserRepository
 

@@ -47,9 +47,6 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
                 )
             }
         }
-
-
-        Log.e(formattedDate, "123")
     }
 
 }

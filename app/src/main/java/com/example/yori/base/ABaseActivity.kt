@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.example.yori.R
 
-abstract class ABaseActivity: MvpAppCompatActivity() {
+abstract class ABaseActivity : MvpAppCompatActivity() {
 
     fun add(container: Int, fragment: Fragment, backStack: String?, tag: String?){
         supportFragmentManager.beginTransaction()

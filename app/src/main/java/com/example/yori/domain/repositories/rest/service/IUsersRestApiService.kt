@@ -7,6 +7,6 @@ import retrofit2.http.Header
 
 interface IUsersRestApiService {
 
-    @GET("/user/v1/users")
+    @GET("/user/v1/getUsers")
     fun users(@Header("access_token") accessToken: String): Observable<List<User>>
 }

@@ -18,12 +18,6 @@ class MessengerStorage {
 
     fun saveConfig(serviceConfig: ServiceConfig) {
         this.serviceConfig = serviceConfig
-
-//        Realm.getDefaultInstance().use {
-//            it.executeTransaction { realm ->
-//                serviceConfig.toRealm()?.let { realm.copyToRealmOrUpdate(it) }
-//            }
-//        }
     }
 
     fun save(message: MessengerMessage) {
@@ -50,9 +44,9 @@ class MessengerStorage {
         var arrayOfMessagesRealm: ArrayList<MessageRealm> = arrayListOf()
         arrayOfMessagesRealm.addAll(realm.copyFromRealm(realmResults))
 
-        for (obj in arrayOfMessagesRealm)
-            messages.add(obj.toBase()!!)
-        //Log.e(arrayOfContactsRealm[0].ownerUsername, ownerUsername)
+        for (message in arrayOfMessagesRealm)
+            messages.add(message.toBase()!!)
+
         return messages
     }
 }

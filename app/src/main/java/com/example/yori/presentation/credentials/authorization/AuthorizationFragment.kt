@@ -33,7 +33,7 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
 
         btn_registration.setOnClickListener {
             activity?.let {
-                if(it is CredentialsActivity) {
+                if (it is CredentialsActivity) {
                     it.currentFragment = RegistrationFragment()
                     it.showRegistration()
                 }

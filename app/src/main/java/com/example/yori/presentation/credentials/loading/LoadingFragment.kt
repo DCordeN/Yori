@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_authorization_registration.*
 import kotlinx.android.synthetic.main.fragment_loading.*
 import javax.inject.Inject
 
-class LoadingFragment: ABaseFragment(), ILoadingView {
+class LoadingFragment : ABaseFragment(), ILoadingView {
 
     @Inject
     @InjectPresenter
@@ -33,7 +33,7 @@ class LoadingFragment: ABaseFragment(), ILoadingView {
         }
     }
 
-    override fun onRotate(){
+    override fun onRotate() {
         var objAn: ObjectAnimator = ObjectAnimator.ofFloat(
             progress_bar, "progress", 5f, 100f
         )

@@ -4,7 +4,7 @@ import io.reactivex.Observer
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-class SubRX<T>: Observer<T>, Disposable {
+class SubRX<T> : Observer<T>, Disposable {
 
     private var iComplete: () -> Unit = {}
     private var iError: (Throwable) -> Unit = {}
@@ -23,22 +23,22 @@ class SubRX<T>: Observer<T>, Disposable {
         this.iFinally = iFinally
     }
 
-    fun setComplete(complete: () -> Unit): SubRX<T>{
+    fun setComplete(complete: () -> Unit): SubRX<T> {
         iComplete = complete
         return this
     }
 
-    fun setError(error: (Throwable) -> Unit): SubRX<T>{
+    fun setError(error: (Throwable) -> Unit): SubRX<T> {
         iError = error
         return this
     }
 
-    fun setNext(next: (T) -> Unit): SubRX<T>{
+    fun setNext(next: (T) -> Unit): SubRX<T> {
         iNext = next
         return this
     }
 
-    fun setSubscribe(subscribe: (Disposable) -> Unit): SubRX<T>{
+    fun setSubscribe(subscribe: (Disposable) -> Unit): SubRX<T> {
         iSubscribe = subscribe
         return this
     }

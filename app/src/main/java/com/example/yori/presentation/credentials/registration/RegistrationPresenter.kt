@@ -21,7 +21,7 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
     @Inject
     constructor()
 
-    fun registration(login: String, pass: String){
+    fun registration(login: String, pass: String) {
         viewState.lock()
 
         userRepository.registration(SubRX {

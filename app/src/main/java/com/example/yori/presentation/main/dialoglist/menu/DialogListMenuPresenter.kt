@@ -12,18 +12,17 @@ import javax.inject.Inject
 @InjectViewState
 class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
 
-    private val repository: UserRepository
-    private val repositorytemp: MessengerRepository
+    private val userRepository: UserRepository
+    private val messengerRepository: MessengerRepository
 
     @Inject
     constructor(repository: UserRepository, repositorytemp: MessengerRepository) {
-        this.repository = repository
-        this.repositorytemp = repositorytemp
+        this.userRepository = repository
+        this.messengerRepository = repositorytemp
     }
 
     fun getUsername(): String? {
-        Log.e(repository.getUser()?.login, "123")
-        return repository.getUser()?.login
+        return userRepository.getUser()?.login
     }
 
     fun showContacts() {
@@ -34,8 +33,4 @@ class DialogListMenuPresenter : MvpPresenter<IDialogListMenuView> {
         ProfileActivity.show()
     }
 
-    fun temp() {
-        /*repository.getUser()?.token?.let {
-            messengerRepository.online(it) }*/
-    }
 }

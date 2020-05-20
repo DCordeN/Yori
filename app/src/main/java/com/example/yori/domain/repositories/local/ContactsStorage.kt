@@ -39,9 +39,9 @@ class ContactsStorage {
         var arrayOfContactsRealm: ArrayList<ContactsRealm> = arrayListOf()
         arrayOfContactsRealm.addAll(realm.copyFromRealm(realmResults))
 
-        for (obj in arrayOfContactsRealm)
-            contacts.add(obj.toBase()!!)
-        //Log.e(arrayOfContactsRealm[11].ownerUsername, ownerUsername)
+        for (contact in arrayOfContactsRealm)
+            contacts.add(contact.toBase()!!)
+
         return contacts
     }
 
