@@ -7,6 +7,7 @@ import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
+import com.example.yori.domain.repositories.models.MessageItem
 import com.example.yori.domain.repositories.models.rest.MessengerMessage
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,7 +26,7 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
     }
 
     @SuppressLint("SimpleDateFormat")
-    fun sendMessage(toId: Int, textMessage: String) {
+    fun sendMessage(toId: Int, textMessage: String, fragment: DialogFragment) {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val formattedDate = formatter.format(date)
@@ -47,6 +48,8 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
                 )
             }
         }
+        fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, 0))
+
     }
 
 }

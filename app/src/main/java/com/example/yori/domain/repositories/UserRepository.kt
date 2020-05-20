@@ -43,6 +43,7 @@ class UserRepository {
         if (response.isSuccessful)
             response.body()?.let {
                 it.refresh = token.refresh
+                it.access = token.access
                 storage.save(it)
                 return it
             }

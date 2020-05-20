@@ -15,5 +15,6 @@ class MessageView @JvmOverloads constructor(
 
     override fun bind(data: MessageItem) {
         tv_message.text = data.message
+        tv_username_first_letter.text = (data.from.toString() + ":")
     }
 }

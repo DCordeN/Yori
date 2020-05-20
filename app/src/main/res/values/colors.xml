@@ -6,11 +6,12 @@
 
     <color name="authorization_enter_button">#218555</color>
     <color name="authorization_register_button">#BF9430</color>
-    <color name="menu_dialogs">#00574B</color>
+    <color name="menu_dialogs">#009688</color>
     <color name="profile_change_password_button">#BF9430</color>
     <color name="profile_exit_button">#9A001E</color>
     <color name="registration_register_button">#1E796A</color>
     <color name="selector_main_gradient_begin">#5BF87B</color>
     <color name="selector_main_gradient_end">#CDDC39</color>
+
 
 </resources>

@@ -8,7 +8,6 @@ import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.presentation.credentials.CredentialsActivity
-import com.example.yori.presentation.main.MainActivity
 import com.example.yori.presentation.main.dialoglist.DialogListActivity
 import javax.inject.Inject
 

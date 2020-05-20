@@ -15,17 +15,17 @@ class DialogListPresenter : MvpPresenter<IDialogListView> {
     var userRepository: UserRepository
 
     @Inject
-    constructor(repositorytemp: MessengerRepository, repository: UserRepository) {
-        this.userRepository = repository
-        this.messengerRepository = repositorytemp
+    constructor(messengerRepository: MessengerRepository, userRepository: UserRepository) {
+        this.userRepository = userRepository
+        this.messengerRepository = messengerRepository
     }
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.bindDialogs(listOf(DialogItem("", "123", "212")))
-//        Thread {
-//            userRepository.refreshToken(userRepository.getUser()?.token!!)
-//        }.start()
+        //Thread {
+        //    userRepository.refreshToken(userRepository.getUser()?.token!!)
+        //}.start()
     }
 
 

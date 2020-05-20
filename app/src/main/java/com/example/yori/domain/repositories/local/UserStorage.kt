@@ -46,10 +46,11 @@ class UserStorage {
                 var tokenRealm = it.createObject(TokenRealm::class.java)
                 tokenRealm.access = token?.access
                 tokenRealm.refresh = token?.refresh
-                it.where(UserRealm::class.java).equalTo("login", user?.login).findFirst()?.let {
+                it.where(UserRealm::class.java).findFirst()?.let {
                     it.token = tokenRealm
                     realm.copyToRealmOrUpdate(it)
                 }
+                tokenRealm.deleteFromRealm()
             }
         }
     }

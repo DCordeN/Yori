@@ -20,6 +20,8 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
     @ProvidePresenter
     fun providePresenter() = presenter
 
+    private var dialogFragment = DialogFragment()
+
     fun inject() {
         App.appComponent.inject(this)
     }
@@ -52,7 +54,7 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
         setContentView(R.layout.activity_dialog)
         supportActionBar?.hide()
 
-        replace(R.id.fl_message, DialogFragment(), null, null)
+        replace(R.id.fl_message, dialogFragment, null, null)
 
         if (savedInstanceState != null)
             return
@@ -68,7 +70,7 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
         btn_send.setOnClickListener {
             var textMessage = et_message.text
             if (textMessage.length != 0) {
-                presenter.sendMessage(id, textMessage.toString())
+                presenter.sendMessage(id, textMessage.toString(), dialogFragment)
                 textMessage.clear()
             }
         }
