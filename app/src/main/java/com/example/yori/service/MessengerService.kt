@@ -52,11 +52,11 @@ class MessengerService : Service() {
                 return@SubRX
             }
             val tokenProvider: () -> String = {
-                userRepository.getUser()?.token?.access ?: throw IllegalStateException("Undefined token")
+                userRepository.getToken()?.access ?: throw IllegalStateException("Undefined token")
             }
 
             val onErrorAuthListener: () -> String = {
-                val token = userRepository.getUser()?.token ?: throw IllegalStateException("Token undefined")
+                val token = userRepository.getToken() ?: throw IllegalStateException("Token undefined")
                 userRepository.refreshToken(token)?.access ?: throw IllegalStateException("Token undefined")
             }
 
@@ -71,7 +71,7 @@ class MessengerService : Service() {
             }
 
 
-        }, userRepository.getUser()?.token!!)
+        }, userRepository.getToken()!!)
     }
 
 

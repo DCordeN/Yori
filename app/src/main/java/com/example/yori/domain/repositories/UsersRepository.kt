@@ -24,11 +24,10 @@ class UsersRepository {
         this.rest = rest
     }
 
-    fun getUsers(observer: SubRX<List<User>>, token: Token?) {
-        if (token != null) {
-            rest.users(accessToken = token.access)
-                .doOnNext { storage.save(it) }
-                .standardSubscribeIO(observer)
-        }
+    fun getUsers(observer: SubRX<List<User>>, token: Token) {
+        rest.users(accessToken = token.access)
+            .doOnNext { storage.save(it) }
+            .standardSubscribeIO(observer)
+
     }
 }

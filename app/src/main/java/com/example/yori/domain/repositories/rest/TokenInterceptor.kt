@@ -33,7 +33,7 @@ class TokenInterceptor : Interceptor {
 
         val chain = inChain ?: throw IllegalArgumentException("Chain is NULL")
 
-        var token = userRepository.getUser()?.token
+        var token = userRepository.getToken()
         if (token == null) {
             CredentialsActivity.show()
             throw AuthException("Auth is NULL")
@@ -63,7 +63,7 @@ class TokenInterceptor : Interceptor {
                 lock.lock()
                 lock.unlock()
 
-                token = userRepository.getUser()?.token
+                token = userRepository.getToken()
                 if (token == null) {
                     CredentialsActivity.show()
                     throw AuthException("Auth is NULL")

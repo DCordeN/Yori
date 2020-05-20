@@ -13,12 +13,14 @@ import javax.inject.Inject
 class UserStorage {
 
     private var user: User? = null
+    private var token: Token? = null
 
     @Inject
     constructor()
 
     fun dropCredentials(){
         user = null
+        token = null
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
@@ -38,25 +40,30 @@ class UserStorage {
         }
     }
 
-    fun save(token: Token?) {
+    fun getToken(): Token? {
+        token?.let {
+            return it
+        }
+        Realm.getDefaultInstance().use {
+            return it.where(TokenRealm::class.java).findFirst()?.toBase().apply { token = this }
+        }
+    }
+
+    fun save(token: Token) {
         user?.token = token
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
-                var tokenRealm = it.createObject(TokenRealm::class.java)
-                tokenRealm.access = token?.access
-                tokenRealm.refresh = token?.refresh
-                it.where(UserRealm::class.java).findFirst()?.let {
-                    it.token = tokenRealm
-                    realm.copyToRealmOrUpdate(it)
-                }
-                tokenRealm.deleteFromRealm()
+                it.where(TokenRealm::class.java).findAll().deleteAllFromRealm()
+                it.copyToRealmOrUpdate(token.toRealm())
             }
         }
     }
 
     fun save(user: User) {
         this.user = user
+        if (user.token != null)
+            token = user.token
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->

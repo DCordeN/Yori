@@ -52,8 +52,6 @@ class CredentialsActivity : ABaseActivity(), ICredentialsRouter {
     }
 
     override fun onBackPressed() {
-        //val intent = intent
-
         if (currentFragment is AuthorizationFragment)
             finish()
         else {

@@ -23,10 +23,10 @@
         </activity>
         <activity android:name=".presentation.main.dialoglist.DialogListActivity" />
         <activity android:name=".presentation.main.contactlist.ContactListActivity" />
-        <activity android:name=".presentation.main.MainActivity" />
         <activity android:name=".presentation.main.profile.ProfileActivity" />
         <activity android:name=".presentation.main.dialog.DialogActivity" />
         <service android:name=".service.MessengerService" />
+        <service android:name=".service.NewMessagesCheckService" />
     </application>
 
 </manifest>

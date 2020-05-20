@@ -23,16 +23,13 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
     fun registration(login: String, pass: String) {
         viewState.lock()
 
-        userRepository.registration(SubRX {
-            _, e -> viewState.unlock()
-
+        userRepository.registration(SubRX { _, e ->
+            viewState.unlock()
             if (e != null) {
                 e.printStackTrace()
                 viewState.onError(e.localizedMessage)
                 return@SubRX
             }
-
-
             DialogListActivity.show()
         }, login, pass)
     

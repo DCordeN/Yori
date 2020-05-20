@@ -2,8 +2,10 @@ package com.example.yori.presentation.main.profile
 
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
+import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.local.UserStorage
+import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.main.dialog.DialogActivity
 import com.example.yori.service.MessengerService
@@ -11,26 +13,24 @@ import javax.inject.Inject
 
 class ProfilePresenter : MvpPresenter<IProfileRouter> {
 
-    private val repository: UserRepository
+    private val userStorage: UserStorage
+    private val userRepository: UserRepository
+    private val messengerRepository: MessengerRepository
 
     @Inject
-    constructor(repository: UserRepository) {
-        this.repository = repository
+    constructor(userStorage: UserStorage, userRepository: UserRepository, messengerRepository: MessengerRepository) {
+        this.userStorage = userStorage
+        this.userRepository = userRepository
+        this.messengerRepository = messengerRepository
     }
 
     fun getUsername(): String? {
-        return repository.getUser()?.login
+        return userRepository.getUser()?.login
     }
 
     fun dropCredentials() {
-        repository.logout(SubRX { _, e ->
-            if (e != null) {
-                e.printStackTrace()
-                return@SubRX
-            }
-        }, repository.getUser()?.token)
+        userStorage.dropCredentials()
         CredentialsActivity.show()
-
     }
 
     fun showDialog(username: String, id: Int) {

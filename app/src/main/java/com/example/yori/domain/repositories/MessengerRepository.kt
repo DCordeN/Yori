@@ -18,6 +18,8 @@ class MessengerRepository {
 
     fun getMessages() = storage.getMessages()
 
+    fun getInDialogMessages() = storage.getInDialogMessages()
+
     @Inject
     constructor(storage: MessengerStorage, rest: MessengerRestApi) {
         this.storage = storage
@@ -27,6 +29,18 @@ class MessengerRepository {
     fun getServiceConfig(observer: SubRX<ServiceConfig>, token: Token) {
         rest.online(token.access)
             .doOnNext { storage.saveConfig(it) }
+            .standardSubscribeIO(observer)
+    }
+
+    fun getAllMessagesRest(observer: SubRX<List<MessengerMessage>>, token: Token, from: Int) {
+        rest.messages(token.access, from)
+            .doOnNext { storage.saveAllMessages(it) }
+            .standardSubscribeIO(observer)
+    }
+
+    fun getNewMessagesRest(observer: SubRX<List<MessengerMessage>>, token: Token) {
+        rest.new_messages(token.access)
+            .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
     }
 

@@ -8,6 +8,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
+import com.example.yori.base.SubRX
 import kotlinx.android.synthetic.main.activity_dialog.*
 import javax.inject.Inject
 
@@ -74,5 +75,7 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
                 textMessage.clear()
             }
         }
+
+        presenter.loadMessages(id, dialogFragment)
     }
 }

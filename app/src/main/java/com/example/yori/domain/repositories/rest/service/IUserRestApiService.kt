@@ -12,9 +12,6 @@ interface IUserRestApiService {
     @POST("/user/v1/login")
     fun login(@Body user: User): Observable<User>
 
-    @DELETE("/user/v1/logout")
-    fun logout(@Header("access_token") accessToken: String): Observable<User>
-
     @POST("/user/v1/refresh")
     @Headers("Content-Type: application/json")
     fun refreshToken(@Header("refresh_token") refreshToken: String): Call<Token>

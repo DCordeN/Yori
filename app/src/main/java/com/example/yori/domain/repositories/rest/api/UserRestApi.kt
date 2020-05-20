@@ -22,10 +22,6 @@ class UserRestApi : ABaseRestApi<IUserRestApiService> {
         )
     )
 
-    fun logout(accessToken: String)
-            = service.logout(accessToken)
-
-
     fun refreshToken(refreshToken: String)
             = service.refreshToken(refreshToken)
 

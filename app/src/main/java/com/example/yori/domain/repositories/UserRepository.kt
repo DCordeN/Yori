@@ -23,6 +23,8 @@ class UserRepository {
     }
 
     fun getUser() = storage.getUser()
+    fun getToken() = storage.getToken()
+
 
     fun login(observer: SubRX<User>, login: String, pass: String) {
         rest.login(login, pass)
@@ -30,20 +32,11 @@ class UserRepository {
             .standardSubscribeIO(observer)
     }
 
-    fun logout(observer: SubRX<User>, token: Token?) {
-        if (token != null) {
-            rest.logout(token.access)
-                .doOnNext { storage.dropCredentials() }
-                .standardSubscribeIO(observer)
-        }
-    }
-
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it != HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
         val response = rest.refreshToken(token.refresh).execute()
         if (response.isSuccessful)
             response.body()?.let {
                 it.refresh = token.refresh
-                it.access = token.access
                 storage.save(it)
                 return it
             }

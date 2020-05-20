@@ -31,7 +31,7 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
         val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val formattedDate = formatter.format(date)
 
-        userRepository.getUser()?.token?.let {
+        userRepository.getToken()!!.let {
             messengerRepository.run {
                 send(SubRX { _, e ->
                         if (e != null) {
@@ -49,7 +49,28 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
             }
         }
         fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, 0))
+    }
 
+    fun loadMessages(id: Int, fragment: DialogFragment) {
+        messengerRepository.getAllMessagesRest(SubRX { _, e ->
+            if (e != null) {
+                e.printStackTrace()
+                return@SubRX
+            }
+            for (message in messengerRepository.getInDialogMessages())
+                fragment.provideAdapter().addFinish(MessageItem(message.message, message.from, message.to))
+
+        }, userRepository.getToken()!!, id)
+
+        messengerRepository.getAllMessagesRest(SubRX { _, e ->
+            if (e != null) {
+                e.printStackTrace()
+                return@SubRX
+            }
+            for (message in messengerRepository.getInDialogMessages())
+                fragment.provideAdapter().addFinish(MessageItem(message.message, message.from, message.to))
+
+        }, userRepository.getToken()!!, userRepository.getUser()?.id!!)
     }
 
 }

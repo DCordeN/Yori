@@ -28,7 +28,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
 
 
     fun loadUsers() {
-        Log.e(userRepository.getUser()?.token?.refresh.toString(), "loadUsers")
+        Log.e(userRepository.getToken()?.refresh.toString(), "loadUsers")
         usersRepository.getUsers(SubRX { _, e ->
             viewState.bindSearchItems(usersRepository.getSearchItems())
             if (e != null) {
@@ -38,7 +38,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
             for (i in contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
                 if (!usersRepository.getSearchItems().contains(i))
                     Log.e("catch", "catch")
-        }, userRepository.getUser()?.token)
+        }, userRepository.getToken()!!)
     }
 
     fun saveToContacts(username: String) {
@@ -52,7 +52,7 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
                 e.printStackTrace()
                 return@SubRX
             }
-        }, userRepository.getUser()?.token)
+        }, userRepository.getToken()!!)
     }
 
     fun checkItInContacts(data: SearchItem): Boolean {

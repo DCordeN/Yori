@@ -29,5 +29,10 @@ class App : Application() {
             .deleteRealmIfMigrationNeeded()
             .build()
         )
+//        Realm.getDefaultInstance().use {
+//            it.beginTransaction()
+//            it.deleteAll()
+//            it.commitTransaction()
+//        }
     }
 }

@@ -26,6 +26,15 @@ fun MessageRealm?.toBase(): MessengerMessage? {
     )
 }
 
+fun MessageInDialogRealm?.toBase(): MessengerMessage? {
+    this ?: return null
+
+    return MessengerMessage (
+        date ?: "", delivered, from, id,
+        message ?: "", to
+    )
+}
+
 fun SearchItem?.toRealm(ownerUsername: String): ContactsRealm? {
     this ?: return null
 
@@ -76,10 +85,7 @@ fun User?.toRealm(): UserRealm? {
 
 fun UserRealm?.toBase(): User? {
     this ?: return null
-
-    return User(
-        avatarUrl, id, login ?: "", password ?: "",  token.toBase()
-    )
+    return User(id, login ?: "", password ?: "", avatarUrl, token.toBase())
 }
 
 fun UserEntity?.toRealm(): UserEntityRealm? {

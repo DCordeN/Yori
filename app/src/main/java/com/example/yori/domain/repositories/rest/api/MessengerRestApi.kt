@@ -15,9 +15,11 @@ class MessengerRestApi : ABaseRestApi<IMessengerRestApiService> {
 
     fun messages(accessToken: String)
             = service.messages(accessToken)
+    fun messages(accessToken: String, from: Int)
+            = service.messages(accessToken, from)
 
-    fun newMessages(accessToken: String)
-            = service.newMessages(accessToken)
+    fun new_messages(accessToken: String)
+            = service.new_messages(accessToken)
 
     fun online(accessToken: String)
             = service.online(accessToken)

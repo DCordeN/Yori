@@ -14,6 +14,7 @@ import com.example.yori.presentation.main.dialoglist.DialogListFragment
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
 import com.example.yori.presentation.main.profile.ProfileActivity
 import com.example.yori.service.MessengerService
+import com.example.yori.service.NewMessagesCheckService
 import dagger.Component
 import javax.inject.Singleton
 
@@ -37,4 +38,5 @@ interface AppComponent {
     fun inject(target: DialogFragment)
     fun inject(target: DialogActivity)
     fun inject(target: DialogListActivity)
+    fun inject(target: NewMessagesCheckService)
 }

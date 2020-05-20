@@ -23,7 +23,6 @@ class LoadingPresenter : MvpPresenter<ILoadingView> {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
         //UserStorage().dropCredentials()
         loadStaticResources()
     }
@@ -33,7 +32,7 @@ class LoadingPresenter : MvpPresenter<ILoadingView> {
 
         Handler().postDelayed( {
             viewState.onLoadingComplete()
-            val token = userRepository.getUser()?.token
+            val token = userRepository.getToken()
             if (token != null) {
                DialogListActivity.show()
                return@postDelayed
