@@ -49,6 +49,7 @@ class DialogListActivity : ABaseActivity() {
             return
 
         MessengerService.start(App.appContext, "t")
+
         //NewMessagesCheckService.start(App.appContext, "123")
 
 

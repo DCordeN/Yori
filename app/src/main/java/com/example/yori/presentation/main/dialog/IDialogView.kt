@@ -6,5 +6,4 @@ import com.example.yori.domain.repositories.models.MessageItem
 interface IDialogView : MvpView {
 
     fun bindMessages(messages: List<MessageItem>)
-
 }

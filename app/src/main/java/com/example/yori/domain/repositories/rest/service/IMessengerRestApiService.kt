@@ -8,8 +8,6 @@ import retrofit2.http.*
 
 interface IMessengerRestApiService {
 
-    @GET("/messenger/v1/messages")
-    fun messages(@Header("access_token") accessToken: String): Observable<List<MessengerMessage>>
 
     @GET("messenger/v1/messages")
     fun messages(@Header("access_token") accessToken: String,

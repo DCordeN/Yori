@@ -34,17 +34,6 @@ class NewMessagesCheckService : Service() {
         super.onCreate()
         App.appComponent.inject(this)
 
-        userRepository.getToken()!!.let {
-            messengerRepository.getNewMessagesRest(SubRX { _, e ->
-                if (e != null) {
-                    e.printStackTrace()
-                    return@SubRX
-                }
-            }, it)
-        }
-
-
-
     }
 
 

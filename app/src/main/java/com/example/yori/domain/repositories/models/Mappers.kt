@@ -17,6 +17,54 @@ fun MessengerMessage?.toRealm(): MessageRealm? {
     }
 }
 
+fun MessengerMessage?.toRealmSendedMessage(): SendedMessageRealm? {
+    this ?: return null
+
+    return SendedMessageRealm().let {
+        it.date = date
+        it.delivered = delivered
+        it.from = from
+        it.id = id
+        it.message = message
+        it.to = to
+        it
+    }
+}
+
+fun MessengerMessage?.toRealmRecievedMessage(): RecievedMessageRealm? {
+    this ?: return null
+
+    return RecievedMessageRealm().let {
+        it.date = date
+        it.delivered = delivered
+        it.from = from
+        it.id = id
+        it.message = message
+        it.to = to
+        it
+    }
+}
+
+
+
+fun SendedMessageRealm?.toBaseSendedMessage(): MessengerMessage? {
+    this ?: return null
+
+    return MessengerMessage (
+        date ?: "", delivered, from, id,
+        message ?: "", to
+    )
+}
+
+fun RecievedMessageRealm?.toBaseRecievedMessage(): MessengerMessage? {
+    this ?: return null
+
+    return MessengerMessage (
+        date ?: "", delivered, from, id,
+        message ?: "", to
+    )
+}
+
 fun MessageRealm?.toBase(): MessengerMessage? {
     this ?: return null
 
@@ -26,14 +74,6 @@ fun MessageRealm?.toBase(): MessengerMessage? {
     )
 }
 
-fun MessageInDialogRealm?.toBase(): MessengerMessage? {
-    this ?: return null
-
-    return MessengerMessage (
-        date ?: "", delivered, from, id,
-        message ?: "", to
-    )
-}
 
 fun SearchItem?.toRealm(ownerUsername: String): ContactsRealm? {
     this ?: return null

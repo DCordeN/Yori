@@ -1,5 +1,7 @@
 package com.example.yori.presentation.main.dialog
 
+import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -13,7 +15,8 @@ import kotlinx.android.synthetic.main.activity_dialog.*
 import javax.inject.Inject
 
 
-class DialogFragment : ABaseListFragment<MessageItem, RecyclerView.ViewHolder>(), IDialogView {
+class DialogFragment(private var toId: Int) : ABaseListFragment<MessageItem, RecyclerView.ViewHolder>(), IDialogView {
+
 
     @Inject
     @InjectPresenter
@@ -61,5 +64,16 @@ class DialogFragment : ABaseListFragment<MessageItem, RecyclerView.ViewHolder>()
     override fun bindMessages(messages: List<MessageItem>) {
         adapter.data = messages.toMutableList()
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val list = view.findViewById<RecyclerView>(getListId())
+        list.layoutManager = provideLayoutManager()
+        list.adapter = provideAdapter()
+
+        presenter.setId(toId)
+    }
+
 
 }

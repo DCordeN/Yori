@@ -13,8 +13,7 @@ class MessengerRestApi : ABaseRestApi<IMessengerRestApiService> {
     @Inject
     constructor(@Named(NetModule.NAME_MAIN_REST_CLIENT) client: IRestClient) : super(client)
 
-    fun messages(accessToken: String)
-            = service.messages(accessToken)
+
     fun messages(accessToken: String, from: Int)
             = service.messages(accessToken, from)
 

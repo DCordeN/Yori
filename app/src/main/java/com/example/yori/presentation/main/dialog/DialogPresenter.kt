@@ -1,7 +1,6 @@
 package com.example.yori.presentation.main.dialog
 
 import android.annotation.SuppressLint
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
@@ -45,32 +44,23 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
                         0,
                         textMessage,
                         toId)
+
                 )
             }
         }
-        fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, 0))
+        messengerRepository.saveSendedMessage(MessengerMessage(formattedDate, false, userRepository.getUser()!!.id, 0, textMessage, toId))
+        fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, toId))
     }
 
-    fun loadMessages(id: Int, fragment: DialogFragment) {
-        messengerRepository.getAllMessagesRest(SubRX { _, e ->
+    fun loadRecievedMessages(id: Int) {
+        messengerRepository.getRecievedMessages(SubRX {_, e ->
             if (e != null) {
                 e.printStackTrace()
                 return@SubRX
             }
-            for (message in messengerRepository.getInDialogMessages())
-                fragment.provideAdapter().addFinish(MessageItem(message.message, message.from, message.to))
-
         }, userRepository.getToken()!!, id)
 
-        messengerRepository.getAllMessagesRest(SubRX { _, e ->
-            if (e != null) {
-                e.printStackTrace()
-                return@SubRX
-            }
-            for (message in messengerRepository.getInDialogMessages())
-                fragment.provideAdapter().addFinish(MessageItem(message.message, message.from, message.to))
 
-        }, userRepository.getToken()!!, userRepository.getUser()?.id!!)
     }
 
 }

@@ -10,6 +10,7 @@ import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.base.SubRX
 import kotlinx.android.synthetic.main.activity_dialog.*
+import kotlinx.android.synthetic.main.fragment_dialog.*
 import javax.inject.Inject
 
 class DialogActivity : ABaseActivity(), IDialogRouter {
@@ -21,7 +22,9 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
     @ProvidePresenter
     fun providePresenter() = presenter
 
-    private var dialogFragment = DialogFragment()
+    private var dialogFragment: DialogFragment? = null
+    private var id: Int? = null
+
 
     fun inject() {
         App.appComponent.inject(this)
@@ -55,7 +58,10 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
         setContentView(R.layout.activity_dialog)
         supportActionBar?.hide()
 
-        replace(R.id.fl_message, dialogFragment, null, null)
+
+        this.id = intent.getIntExtra("id", 0)
+        dialogFragment = DialogFragment(id!!)
+        replace(R.id.fl_message, dialogFragment!!, null, null)
 
         if (savedInstanceState != null)
             return
@@ -65,17 +71,20 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
         super.onResume()
 
         var username = intent.getStringExtra("username")
-        var id = intent.getIntExtra("id", 0)
         tv_username.text = username
+
+        rv_dialog.scrollToPosition(dialogFragment?.provideAdapter()?.itemCount?.minus(1)!!)
 
         btn_send.setOnClickListener {
             var textMessage = et_message.text
             if (textMessage.length != 0) {
-                presenter.sendMessage(id, textMessage.toString(), dialogFragment)
+                presenter.sendMessage(id!!, textMessage.toString(), dialogFragment!!)
                 textMessage.clear()
             }
+            rv_dialog.smoothScrollBy(0, 92)
         }
-
-        presenter.loadMessages(id, dialogFragment)
+        presenter.loadRecievedMessages(id!!)
     }
+
+
 }

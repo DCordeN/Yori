@@ -20,7 +20,6 @@ class UserStorage {
 
     fun dropCredentials(){
         user = null
-        token = null
 
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
