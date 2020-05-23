@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.IBinder
 import androidx.core.content.ContextCompat
 import com.example.yori.App
-import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import javax.inject.Inject

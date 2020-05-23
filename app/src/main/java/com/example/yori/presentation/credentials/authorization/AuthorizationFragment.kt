@@ -10,12 +10,10 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseFragment
-import com.example.yori.domain.di.components.AppComponent
-import com.example.yori.domain.di.components.DaggerAppComponent
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.credentials.registration.RegistrationFragment
-import kotlinx.android.synthetic.main.fragment_authorization.*
 import kotlinx.android.synthetic.main.activity_authorization_registration.*
+import kotlinx.android.synthetic.main.fragment_authorization.*
 import javax.inject.Inject
 
 class AuthorizationFragment : ABaseFragment(), IAuthorizationView {

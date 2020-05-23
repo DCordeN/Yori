@@ -1,13 +1,9 @@
 package com.example.yori.presentation.credentials.registration
 
-import android.util.LayoutDirection
-import android.util.Log
-import android.widget.FrameLayout
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.UserRepository
-import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.main.dialoglist.DialogListActivity
 import javax.inject.Inject
 

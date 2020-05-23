@@ -1,10 +1,7 @@
 package com.example.yori.domain.repositories.local
 
-import android.util.Log
 import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.domain.repositories.models.rest.User
-import com.example.yori.domain.repositories.models.toRealm
-import io.realm.Realm
 import javax.inject.Inject
 
 class UsersStorage {

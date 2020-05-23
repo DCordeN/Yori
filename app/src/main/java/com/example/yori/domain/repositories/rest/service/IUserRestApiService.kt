@@ -1,7 +1,7 @@
 package com.example.yori.domain.repositories.rest.service
 
-import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.models.rest.Token
+import com.example.yori.domain.repositories.models.rest.User
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*

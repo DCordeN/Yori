@@ -1,6 +1,5 @@
 package com.example.yori.presentation.main.contactlist
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.domain.repositories.ContactsRepository

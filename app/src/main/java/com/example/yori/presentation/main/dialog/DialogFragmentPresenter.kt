@@ -3,7 +3,6 @@ package com.example.yori.presentation.main.dialog
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.models.MessageItem

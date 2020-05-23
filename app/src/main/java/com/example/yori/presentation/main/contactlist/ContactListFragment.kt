@@ -8,8 +8,6 @@ import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
-import com.example.yori.domain.di.components.DaggerAppComponent
-import com.example.yori.domain.repositories.models.ContactItem
 import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.activity_contacts_list.*
 import javax.inject.Inject

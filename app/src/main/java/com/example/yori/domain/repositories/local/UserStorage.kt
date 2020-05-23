@@ -8,14 +8,12 @@ import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.domain.repositories.models.toBase
 import com.example.yori.domain.repositories.models.toRealm
 import io.realm.Realm
-import javax.inject.Inject
 
 class UserStorage {
 
     private var user: User? = null
     private var token: Token? = null
 
-    @Inject
     constructor()
 
     fun dropCredentials(){

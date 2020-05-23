@@ -1,6 +1,5 @@
 package com.example.yori.presentation.credentials.authorization
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX

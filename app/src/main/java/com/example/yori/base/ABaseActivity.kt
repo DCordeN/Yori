@@ -2,7 +2,6 @@ package com.example.yori.base
 
 import androidx.fragment.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatActivity
-import com.example.yori.R
 
 abstract class ABaseActivity : MvpAppCompatActivity() {
 

@@ -1,12 +1,14 @@
 package com.example.yori.domain.repositories.local
 
-import com.example.yori.domain.repositories.models.*
 import com.example.yori.domain.repositories.models.realm.RecievedMessageRealm
 import com.example.yori.domain.repositories.models.realm.SendedMessageRealm
 import com.example.yori.domain.repositories.models.rest.MessengerMessage
 import com.example.yori.domain.repositories.models.rest.ServiceConfig
+import com.example.yori.domain.repositories.models.toBaseRecievedMessage
+import com.example.yori.domain.repositories.models.toBaseSendedMessage
+import com.example.yori.domain.repositories.models.toRealmRecievedMessage
+import com.example.yori.domain.repositories.models.toRealmSendedMessage
 import io.realm.Realm
-import io.realm.RealmResults
 import javax.inject.Inject
 
 class MessengerStorage {

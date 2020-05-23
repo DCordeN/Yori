@@ -1,13 +1,10 @@
 package com.example.yori.domain.repositories.local
 
-import android.provider.ContactsContract
-import android.util.Log
 import com.example.yori.domain.repositories.models.SearchItem
 import com.example.yori.domain.repositories.models.realm.ContactsRealm
 import com.example.yori.domain.repositories.models.toBase
 import com.example.yori.domain.repositories.models.toRealm
 import io.realm.Realm
-import io.realm.RealmResults
 import javax.inject.Inject
 
 class ContactsStorage {

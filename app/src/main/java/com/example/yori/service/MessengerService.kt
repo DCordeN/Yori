@@ -8,8 +8,8 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.yori.App
 import com.example.yori.base.SubRX
-import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.MessengerRepository
+import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.messenger.NetworkUser
 import javax.inject.Inject
 

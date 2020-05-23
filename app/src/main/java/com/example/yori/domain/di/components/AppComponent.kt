@@ -1,5 +1,6 @@
 package com.example.yori.domain.di.components
 
+import com.example.yori.domain.di.modules.AppModule
 import com.example.yori.domain.di.modules.NetModule
 import com.example.yori.presentation.credentials.authorization.AuthorizationFragment
 import com.example.yori.presentation.credentials.loading.LoadingFragment
@@ -20,7 +21,8 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    NetModule::class
+    NetModule::class,
+    AppModule::class
 ])
 interface AppComponent {
 

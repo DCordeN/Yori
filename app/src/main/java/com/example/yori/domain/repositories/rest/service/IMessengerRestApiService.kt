@@ -3,7 +3,6 @@ package com.example.yori.domain.repositories.rest.service
 import com.example.yori.domain.repositories.models.rest.MessengerMessage
 import com.example.yori.domain.repositories.models.rest.ServiceConfig
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.*
 
 interface IMessengerRestApiService {

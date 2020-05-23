@@ -1,10 +1,9 @@
 package com.example.yori.presentation.main.dialoglist.menu
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.MessengerRepository
+import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.presentation.main.contactlist.ContactListActivity
 import com.example.yori.presentation.main.profile.ProfileActivity
 import javax.inject.Inject

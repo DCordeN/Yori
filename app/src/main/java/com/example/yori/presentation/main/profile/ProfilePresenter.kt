@@ -1,14 +1,11 @@
 package com.example.yori.presentation.main.profile
 
 import com.arellomobile.mvp.MvpPresenter
-import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.local.UserStorage
-import com.example.yori.domain.repositories.models.rest.User
 import com.example.yori.presentation.credentials.CredentialsActivity
 import com.example.yori.presentation.main.dialog.DialogActivity
-import com.example.yori.service.MessengerService
 import javax.inject.Inject
 
 class ProfilePresenter : MvpPresenter<IProfileRouter> {

@@ -2,13 +2,12 @@ package com.example.yori.presentation.main.dialog
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
-import com.example.yori.base.SubRX
+import com.example.yori.presentation.main.contactlist.ContactListActivity
 import kotlinx.android.synthetic.main.activity_dialog.*
 import kotlinx.android.synthetic.main.fragment_dialog.*
 import javax.inject.Inject
@@ -84,6 +83,13 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
             rv_dialog.smoothScrollBy(0, 92)
         }
         presenter.loadRecievedMessages(id!!)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        ContactListActivity.show()
+
     }
 
 

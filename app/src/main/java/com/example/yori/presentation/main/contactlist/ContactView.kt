@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import com.example.yori.R
 import com.example.yori.base.ABaseView
-import com.example.yori.domain.repositories.models.ContactItem
 import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.item_contact.view.*
 

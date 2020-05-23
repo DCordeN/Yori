@@ -1,9 +1,7 @@
 package com.example.yori.domain.di.modules
 
 import com.example.yori.base.IRestClient
-import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
-import com.example.yori.domain.repositories.UsersRepository
 import com.example.yori.domain.repositories.rest.RestClient
 import com.example.yori.domain.repositories.rest.TokenInterceptor
 import com.google.gson.Gson

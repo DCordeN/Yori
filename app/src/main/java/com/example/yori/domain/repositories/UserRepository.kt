@@ -1,7 +1,6 @@
 package com.example.yori.domain.repositories
 
 import android.os.SystemClock
-import android.util.Log
 import com.example.yori.base.SubRX
 import com.example.yori.base.standardSubscribeIO
 import com.example.yori.domain.repositories.local.UserStorage
@@ -34,12 +33,13 @@ class UserRepository {
 
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it != HttpURLConnection.HTTP_UNAUTHORIZED} ): Token? {
         val response = rest.refreshToken(token.refresh).execute()
-        if (response.isSuccessful)
+        if (response.isSuccessful) {
             response.body()?.let {
                 it.refresh = token.refresh
                 storage.save(it)
                 return it
             }
+        }
 
         if (onRetry(response.code())) {
             SystemClock.sleep(500)

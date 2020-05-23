@@ -1,10 +1,8 @@
 package com.example.yori.domain.repositories.rest
 
 import android.util.Log
-import com.example.yori.domain.repositories.MessengerRepository
-import com.example.yori.domain.repositories.models.rest.Token
 import com.example.yori.domain.repositories.UserRepository
-import com.example.yori.domain.repositories.UsersRepository
+import com.example.yori.domain.repositories.models.rest.Token
 import com.example.yori.exceptions.AuthException
 import com.example.yori.presentation.credentials.CredentialsActivity
 import okhttp3.Interceptor
@@ -12,7 +10,6 @@ import okhttp3.Request
 import okhttp3.Response
 import java.net.HttpURLConnection
 import java.util.concurrent.locks.ReentrantLock
-import javax.inject.Inject
 
 class TokenInterceptor : Interceptor {
 
@@ -31,7 +28,7 @@ class TokenInterceptor : Interceptor {
 
     override fun intercept(inChain: Interceptor.Chain?): Response {
 
-        val chain = inChain ?: throw IllegalArgumentException("Chain is NULL")
+        val chain = inChain ?: throw IllegalArgumentException("Chain is NULL") as Throwable
 
         var token = userRepository.getToken()
         if (token == null) {
