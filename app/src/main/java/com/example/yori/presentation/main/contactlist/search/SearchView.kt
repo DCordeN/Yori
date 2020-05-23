@@ -28,6 +28,10 @@ class SearchView @JvmOverloads constructor(
         iv_add_contact.visibility = View.GONE
     }
 
+    override fun deactivateAddingToContactsButton() {
+        iv_add_contact.isEnabled = false
+    }
+
 
 
 

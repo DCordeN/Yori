@@ -3,6 +3,7 @@ package com.example.yori.presentation.main.contactlist.search
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -12,6 +13,7 @@ import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
 import com.example.yori.domain.repositories.models.SearchItem
 import kotlinx.android.synthetic.main.activity_contacts_list.*
+import kotlinx.android.synthetic.main.item_search.view.*
 import javax.inject.Inject
 
 class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder>(), ISearchListView {
@@ -37,11 +39,16 @@ class SearchListFragment : ABaseListFragment<SearchItem, RecyclerView.ViewHolder
 
             if (view is ISearchView) {
                 view.bind(data[position])
-                if (searchListPresenter.checkItInContacts(data[position]))
+                if (searchListPresenter.checkItInContacts(data[position])) {
                     view.hideAddingToContactsButton()
+                }
             }
             view.setOnClickListener {
-                searchListPresenter.saveToContacts(data[position].username)
+                if (!searchListPresenter.checkItInContacts(data[position])) {
+                    view.iv_add_contact.visibility = View.GONE
+                    searchListPresenter.saveToContacts(data[position].username)
+
+                }
             }
         }
 

@@ -1,6 +1,7 @@
 package com.example.yori.presentation.main.profile
 
 import com.arellomobile.mvp.MvpPresenter
+import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.domain.repositories.local.UserStorage
@@ -32,6 +33,18 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
 
     fun showDialog(username: String, id: Int) {
         DialogActivity.show(username, id)
+    }
+
+    fun loadRecievedMessages(id: Int) {
+        messengerRepository.getRecievedMessages(SubRX { _, e ->
+            if (e != null) {
+                e.printStackTrace()
+                return@SubRX
+            }
+
+        }, userRepository.getToken()!!, id)
+
+
     }
 
 

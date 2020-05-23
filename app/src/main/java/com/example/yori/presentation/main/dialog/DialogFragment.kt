@@ -12,6 +12,7 @@ import com.example.yori.base.ABaseAdapter
 import com.example.yori.base.ABaseListFragment
 import com.example.yori.domain.repositories.models.MessageItem
 import kotlinx.android.synthetic.main.activity_dialog.*
+import kotlinx.android.synthetic.main.fragment_dialog.*
 import javax.inject.Inject
 
 
@@ -73,6 +74,10 @@ class DialogFragment(private var toId: Int) : ABaseListFragment<MessageItem, Rec
         list.adapter = provideAdapter()
 
         presenter.setId(toId)
+    }
+
+    override fun notifyAdapter() {
+        adapter.notifyDataSetChanged()
     }
 
 

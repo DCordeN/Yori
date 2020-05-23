@@ -82,7 +82,6 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
             }
             rv_dialog.smoothScrollBy(0, 92)
         }
-        presenter.loadRecievedMessages(id!!)
     }
 
     override fun onBackPressed() {

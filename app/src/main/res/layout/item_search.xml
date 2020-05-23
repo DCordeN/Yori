@@ -31,6 +31,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
         android:layout_marginStart="300dp"
+        android:src="@drawable/ic_add_contact"
         app:srcCompat="@drawable/ic_add_contact"/>
 
 </FrameLayout>

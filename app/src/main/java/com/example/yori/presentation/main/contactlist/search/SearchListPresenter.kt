@@ -56,6 +56,9 @@ class SearchListPresenter : MvpPresenter<ISearchListView> {
     }
 
     fun checkItInContacts(data: SearchItem): Boolean {
+        if (data.username == userRepository.getUser()?.login)
+            return true
+
         for (contact in contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
             if (contact.username == data.username)
                 return true

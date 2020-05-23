@@ -38,7 +38,7 @@ class MessengerRepository {
     }
 
     fun getRecievedMessages(observer: SubRX<List<MessengerMessage>>, token: Token, id: Int) {
-        if (storage.getRecievedMessages().size == 0)
+       // if (storage.getRecievedMessages().size == 0)
             rest.messages(token.access, id)
                 .doOnNext { storage.saveRecievedMessages(it) }
                 .standardSubscribeIO(observer)

@@ -7,5 +7,6 @@ interface ISearchView : MvpView {
 
     fun bind(data: SearchItem)
     fun hideAddingToContactsButton()
+    fun deactivateAddingToContactsButton()
 
 }

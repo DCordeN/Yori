@@ -86,6 +86,8 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
             iv_letter.setOnClickListener {
                 presenter.showDialog(tv_username.text.toString(), id)
             }
+
+        presenter.loadRecievedMessages(id)
     }
 
 }

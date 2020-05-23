@@ -52,15 +52,6 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
         fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, toId))
     }
 
-    fun loadRecievedMessages(id: Int) {
-        messengerRepository.getRecievedMessages(SubRX {_, e ->
-            if (e != null) {
-                e.printStackTrace()
-                return@SubRX
-            }
-        }, userRepository.getToken()!!, id)
 
-
-    }
 
 }
