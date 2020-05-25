@@ -48,6 +48,14 @@ class MessengerStorage {
         }
     }
 
+    fun isInReceivedMessages(id: Int): Boolean {
+        for (message in recievedMessages)
+            if (message.from == id)
+                return true
+
+        return false
+    }
+
     fun saveRecievedMessages(recievedMessages: List<MessengerMessage>) {
         this.recievedMessages = recievedMessages.toMutableList()
 
@@ -61,18 +69,6 @@ class MessengerStorage {
         }
     }
 
-    fun saveSendedMessages(sendedMessages: List<MessengerMessage>) {
-        this.sendedMessages = sendedMessages.toMutableList()
-
-        Realm.getDefaultInstance().use {
-            it.executeTransaction { realm ->
-                it.where(SendedMessageRealm::class.java).findAll().deleteAllFromRealm()
-                for (sendedMessage in sendedMessages)
-                    it.copyToRealm(sendedMessage.toRealmSendedMessage()!!)
-
-            }
-        }
-    }
 
     fun saveSendedMessage(sendedMessage: MessengerMessage) {
         this.sendedMessages.add(sendedMessage)

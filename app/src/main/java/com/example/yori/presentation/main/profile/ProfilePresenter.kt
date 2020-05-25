@@ -36,13 +36,14 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
     }
 
     fun loadRecievedMessages(id: Int) {
-        messengerRepository.getRecievedMessages(SubRX { _, e ->
-            if (e != null) {
-                e.printStackTrace()
-                return@SubRX
-            }
+        if (!messengerRepository.isInReceivedMessages(id))
+            messengerRepository.getRecievedMessages(SubRX { _, e ->
+                if (e != null) {
+                    e.printStackTrace()
+                    return@SubRX
+                }
 
-        }, userRepository.getToken()!!, id)
+            }, userRepository.getToken()!!, id)
 
 
     }

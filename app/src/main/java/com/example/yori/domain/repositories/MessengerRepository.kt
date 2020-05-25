@@ -18,6 +18,7 @@ class MessengerRepository {
 
     fun getSendedMessages() = storage.getSendedMessages()
     fun getRecievedMessages() = storage.getRecievedMessages()
+    fun isInReceivedMessages(id: Int) = storage.isInReceivedMessages(id)
 
 
     fun saveSendedMessage(sendedMessage: MessengerMessage) {
