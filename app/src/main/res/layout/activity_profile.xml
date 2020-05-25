@@ -86,15 +86,6 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/btn_change_password"
-        android:layout_width="230dp"
-        android:layout_height="51dp"
-        android:background="@drawable/shape_profile_change_password_button"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
-        android:text="@string/profile_change_password" />
-
-    <Button
         android:id="@+id/btn_exit"
         android:layout_width="230dp"
         android:layout_height="51dp"

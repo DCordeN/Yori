@@ -11,6 +11,7 @@ import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
 import com.example.yori.domain.repositories.UserRepository
 import com.example.yori.messenger.NetworkUser
+import eac.network.Tcp
 import javax.inject.Inject
 
 class MessengerService : Service() {

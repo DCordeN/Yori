@@ -38,7 +38,6 @@ class DialogFragmentPresenter : MvpPresenter<IDialogView> {
         Log.e(messengerRepository.getSendedMessages().size.toString(), "123")
         Log.e(messengerRepository.getRecievedMessages().size.toString(), "321")
         viewState.bindMessages(messageItems)
-
     }
 
     fun setId(id: Int) {

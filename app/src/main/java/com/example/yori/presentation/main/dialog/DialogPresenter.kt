@@ -50,6 +50,12 @@ class DialogPresenter : MvpPresenter<IDialogRouter> {
         }
         messengerRepository.saveSendedMessage(MessengerMessage(formattedDate, false, userRepository.getUser()!!.id, 0, textMessage, toId))
         fragment.provideAdapter().addFinish(MessageItem(textMessage, userRepository.getUser()!!.id, toId))
+
+    }
+
+    fun notify(fragment: DialogFragment) {
+        fragment.provideAdapter().notifyDataSetChanged()
+
     }
 
 

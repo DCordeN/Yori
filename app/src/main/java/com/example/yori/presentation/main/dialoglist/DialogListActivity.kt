@@ -7,6 +7,7 @@ import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.presentation.main.dialoglist.menu.DialogListMenuFragment
 import com.example.yori.service.MessengerService
+import com.example.yori.service.NewMessagesCheckService
 import kotlinx.android.synthetic.main.activity_dialogs_list.*
 
 class DialogListActivity : ABaseActivity() {
@@ -45,7 +46,7 @@ class DialogListActivity : ABaseActivity() {
 
         MessengerService.start(App.appContext, "t")
 
-        //NewMessagesCheckService.start(App.appContext, "123")
+        NewMessagesCheckService.start(App.appContext, "123")
 
 
     }

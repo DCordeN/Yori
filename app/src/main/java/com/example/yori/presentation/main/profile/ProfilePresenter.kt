@@ -1,5 +1,6 @@
 package com.example.yori.presentation.main.profile
 
+import android.content.Intent
 import com.arellomobile.mvp.MvpPresenter
 import com.example.yori.base.SubRX
 import com.example.yori.domain.repositories.MessengerRepository
@@ -36,7 +37,7 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
     }
 
     fun loadRecievedMessages(id: Int) {
-        if (!messengerRepository.isInReceivedMessages(id))
+        if (messengerRepository.isInReceivedMessages(id))
             messengerRepository.getRecievedMessages(SubRX { _, e ->
                 if (e != null) {
                     e.printStackTrace()
@@ -47,6 +48,8 @@ class ProfilePresenter : MvpPresenter<IProfileRouter> {
 
 
     }
+
+
 
 
 

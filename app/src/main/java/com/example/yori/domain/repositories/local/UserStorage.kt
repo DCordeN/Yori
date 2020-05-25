@@ -52,7 +52,7 @@ class UserStorage {
         Realm.getDefaultInstance().use {
             it.executeTransaction { realm ->
                 it.where(TokenRealm::class.java).findAll().deleteAllFromRealm()
-                it.copyToRealmOrUpdate(token.toRealm())
+                it.copyToRealm(token.toRealm())
             }
         }
     }

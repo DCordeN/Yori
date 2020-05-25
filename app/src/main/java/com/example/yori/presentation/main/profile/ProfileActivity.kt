@@ -2,16 +2,20 @@ package com.example.yori.presentation.main.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bumptech.glide.Glide
 import com.example.yori.App
 import com.example.yori.R
 import com.example.yori.base.ABaseActivity
 import com.example.yori.presentation.main.dialoglist.DialogListActivity
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.io.File
 import javax.inject.Inject
+
 
 
 class ProfileActivity : ABaseActivity(), IProfileRouter {
@@ -74,8 +78,10 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
         if (username != presenter.getUsername() && username != null) {
             tv_username.text = username
             iv_letter.visibility = View.VISIBLE
-            btn_change_password.visibility = View.GONE
             btn_exit.visibility = View.GONE
+            btn_exit.isEnabled = false
+
+
         }
 
         var id = intent.getIntExtra("id", 0)
@@ -84,10 +90,14 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
 
         if (iv_letter != null)
             iv_letter.setOnClickListener {
-                presenter.showDialog(tv_username.text.toString(), id)
+                presenter.showDialog(username, id)
             }
 
         presenter.loadRecievedMessages(id)
     }
+
+
+
+
 
 }

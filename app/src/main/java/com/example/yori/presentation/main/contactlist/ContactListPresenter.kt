@@ -22,10 +22,7 @@ class ContactListPresenter : MvpPresenter<IContactListView> {
         super.onFirstViewAttach()
         //contactsRepository.deleteAllContacts()
         viewState.bindContacts(contactsRepository.getContacts(userRepository.getUser()?.login.toString()))
-//
-//        contactsRepository.loadContacts {
-//            viewState.bindContacts(it)
-//        }
+
 
     }
 

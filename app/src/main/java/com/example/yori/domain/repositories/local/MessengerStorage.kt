@@ -1,5 +1,6 @@
 package com.example.yori.domain.repositories.local
 
+import android.util.Log
 import com.example.yori.domain.repositories.models.realm.RecievedMessageRealm
 import com.example.yori.domain.repositories.models.realm.SendedMessageRealm
 import com.example.yori.domain.repositories.models.rest.MessengerMessage
@@ -52,6 +53,8 @@ class MessengerStorage {
         for (message in recievedMessages)
             if (message.from == id)
                 return true
+
+        Log.e("123", "yes")
 
         return false
     }

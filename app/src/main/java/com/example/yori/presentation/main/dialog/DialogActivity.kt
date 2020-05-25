@@ -82,6 +82,10 @@ class DialogActivity : ABaseActivity(), IDialogRouter {
             }
             rv_dialog.smoothScrollBy(0, 92)
         }
+
+        btn_update_rv.setOnClickListener {
+            presenter.notify(dialogFragment!!)
+        }
     }
 
     override fun onBackPressed() {

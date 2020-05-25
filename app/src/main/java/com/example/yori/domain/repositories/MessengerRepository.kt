@@ -38,6 +38,12 @@ class MessengerRepository {
             .standardSubscribeIO(observer)
     }
 
+    fun getNewMessages(observer: SubRX<List<MessengerMessage>>, token: Token) {
+        rest.new_messages(token.access)
+            .doOnNext { storage.saveRecievedMessages(it) }
+            .standardSubscribeIO(observer)
+    }
+
     fun getRecievedMessages(observer: SubRX<List<MessengerMessage>>, token: Token, id: Int) {
        // if (storage.getRecievedMessages().size == 0)
             rest.messages(token.access, id)

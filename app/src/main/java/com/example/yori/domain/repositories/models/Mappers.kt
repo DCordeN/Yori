@@ -80,6 +80,7 @@ fun SearchItem?.toRealm(ownerUsername: String): ContactsRealm? {
 
     return ContactsRealm().let {
         it.avatarUrl = avatarUrl
+        it.id = id
         it.username = username
         it.ownerUsername = ownerUsername
         it
@@ -90,7 +91,7 @@ fun ContactsRealm?.toBase(): SearchItem? {
     this ?: return null
 
     return SearchItem (
-        avatarUrl ?: "", id = null, username = username
+        avatarUrl ?: "", id = id, username = username
     )
 }
 
