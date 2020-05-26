@@ -34,7 +34,7 @@ class DialogListActivity : ABaseActivity() {
         setContentView(R.layout.activity_dialogs_list)
         supportActionBar?.hide()
 
-        add(R.id.fl_dialogs_list, dialogsListFragment, null, null)
+        replace(R.id.fl_dialogs_list, dialogsListFragment, null, null)
         replace(R.id.fl_menu, menuFragment, null, null)
         supportFragmentManager.beginTransaction()
             .hide(menuFragment)

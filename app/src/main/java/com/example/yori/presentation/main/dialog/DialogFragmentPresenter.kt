@@ -34,7 +34,6 @@ class DialogFragmentPresenter : MvpPresenter<IDialogView> {
             if ((message.from == id && message.to == userRepository.getUser()?.id) ||
                 (message.from == userRepository.getUser()?.id && message.to == id))
                     messageItems.add(MessageItem(message.message, message.from, message.to))
-
         Log.e(messengerRepository.getSendedMessages().size.toString(), "123")
         Log.e(messengerRepository.getRecievedMessages().size.toString(), "321")
         viewState.bindMessages(messageItems)

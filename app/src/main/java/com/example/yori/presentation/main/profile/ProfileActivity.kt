@@ -86,7 +86,6 @@ class ProfileActivity : ABaseActivity(), IProfileRouter {
 
         var id = intent.getIntExtra("id", 0)
 
-        Log.d("id", id.toString())
 
         if (iv_letter != null)
             iv_letter.setOnClickListener {
